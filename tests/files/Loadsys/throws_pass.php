@@ -1,21 +1,21 @@
 <?php
 
-namespace CakePHP;
+namespace Loadsys;
 
 use Other\Crap;
 use Other\Error as OtherError;
 
 class Throws {
 
-/**
- * Test throws
- *
- * @throws Exception
- * @throws CakePHP\Boom
- * @throws CakePHP\Error\Boom
- * @throws Other\Crap
- * @throws Other\Error\Issue
- */
+	/**
+	 * Test throws
+	 *
+	 * @throws Exception
+	 * @throws Loadsys\Boom
+	 * @throws Loadsys\Error\Boom
+	 * @throws Other\Crap
+	 * @throws Other\Error\Issue
+	 */
 	public function test() {
 		switch ($a) {
 			case 1:
