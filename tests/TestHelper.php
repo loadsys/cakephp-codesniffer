@@ -33,7 +33,7 @@ class TestHelper {
 	public function autoload($class) {
 		$originalClass = $class;
 		if (strpos($class, $this->_dirName) !== false) {
-			$class = str_replace($this->_dirName, 'CakePHP', $class);
+			$class = str_replace($this->_dirName, 'Loadsys', $class);
 		}
 		if (class_exists($class, false)) {
 			eval('class ' . $originalClass . ' extends ' . $class . '{}');

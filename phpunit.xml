@@ -10,7 +10,7 @@
 	 bootstrap="./tests/bootstrap.php">
 	<testsuites>
 		<testsuite name="phpcs">
-			<file>./tests/CakePHPStandardTest.php</file>
+			<file>./tests/LoadsysStandardTest.php</file>
 		</testsuite>
 	</testsuites>
 </phpunit>
