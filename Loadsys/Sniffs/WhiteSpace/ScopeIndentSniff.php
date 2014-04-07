@@ -251,7 +251,7 @@ class Loadsys_Sniffs_WhiteSpace_ScopeIndentSniff implements PHP_CodeSniffer_Snif
 					// code that precedes them.
 					if ($indent !== $column) {
 						$error = 'Doc blocks indentation must match code block';
-						$phpcsFile->addError($error, $firstToken, 'DocCommentStartColumn');
+						$phpcsFile->addWarning($error, $firstToken, 'DocCommentStartColumn');
 					}
 				} elseif ($column !== $indent) {
 					if ($this->exact === true || $column < $indent) {

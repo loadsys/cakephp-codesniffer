@@ -1,17 +1,33 @@
 {
-    "name": "loadsys/loadsys_codesniffer",
-    "description": "Works with phpcs to check code against common coding standards used by Loadsys.",
-    "require": {
-        "squizlabs/php_codesniffer": "1.*"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "3.7.*"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Brian Porter",
-            "email": "beporter@users.sourceforge.net"
-        }
-    ]
+	"name": "loadsys/loadsys_codesniffer",
+	"description": "Loadsys CodeSniffer Standards, very similar to CakePHP core team's.",
+	"type": "library",
+	"keywords": ["framework", "codesniffer"],
+	"homepage": "https://github.com/loadsys/loadsys_codesniffer",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Brian Porter",
+			"email": "beporter@users.sourceforge.net"
+		},
+		{
+			"name": "Justin Yost",
+			"email": "justin@loadsys.com"
+		},
+		{
+			"name": "CakePHP Community",
+			"homepage": "https://github.com/cakephp/cakephp-codesniffer/graphs/contributors"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/loadsys/loadsys_codesniffer/issues",
+		"source": "https://github.com/loadsys/loadsys_codesniffer"
+	},
+	"require": {
+		"squizlabs/php_codesniffer": ">=1.4"
+	},
+	"require-dev": {
+		"squizlabs/php_codesniffer": "dev-master",
+		"phpunit/phpunit": "4.1.*"
+	}
 }
