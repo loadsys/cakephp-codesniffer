@@ -10,7 +10,7 @@
  *
  * @copyright     2006 Squiz Pty Ltd (ABN 77 084 670 600)
  * @link          https://github.com/loadsys/loadsys_codesniffer
- * @since         CakePHP CodeSniffer 0.1.12
+ * @since         Loadsys CodeSniffer 0.1.12
  * @license       https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  */
 

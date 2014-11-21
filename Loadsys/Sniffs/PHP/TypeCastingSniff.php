@@ -8,7 +8,7 @@
  * Redistributions of files must retain the above copyright notice.
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://pear.php.net/package/PHP_CodeSniffer_CakePHP
+ * @link          https://github.com/loadsys/loadsys_codesniffer
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
@@ -17,7 +17,7 @@
  * - bool instead of boolean
  * - int instead of integer
  */
-class CakePHP_Sniffs_PHP_TypeCastingSniff implements PHP_CodeSniffer_Sniff {
+class Loadsys_Sniffs_PHP_TypeCastingSniff implements PHP_CodeSniffer_Sniff {
 
 	/**
 	 * Returns an array of tokens this test wants to listen for.

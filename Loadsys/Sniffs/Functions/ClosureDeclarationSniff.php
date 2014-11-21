@@ -10,8 +10,8 @@
  * Redistributions of files must retain the above copyright notice.
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://pear.php.net/package/PHP_CodeSniffer_CakePHP
- * @since         CakePHP CodeSniffer 0.1.28
+ * @link          https://github.com/loadsys/loadsys_codesniffer
+ * @since         Loadsys CodeSniffer 0.1.28
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
@@ -19,7 +19,7 @@
  * Ensures there is a space after the function keyword for closures.
  *
  */
-class CakePHP_Sniffs_Functions_ClosureDeclarationSniff implements PHP_CodeSniffer_Sniff {
+class Loadsys_Sniffs_Functions_ClosureDeclarationSniff implements PHP_CodeSniffer_Sniff {
 
 	public function register() {
 		return array(T_CLOSURE);
