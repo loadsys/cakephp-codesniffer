@@ -65,7 +65,7 @@
  <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
 
  <!-- Relax commenting rules for test cases -->
- <rule ref="CakePHP.Commenting.FunctionComment">
+ <rule ref="Loadsys.Commenting.FunctionComment">
   <!-- 2.x dir structure -->
   <exclude-pattern>*/Test/Case/*</exclude-pattern>
   <exclude-pattern>*/Test/test_app/*</exclude-pattern>
