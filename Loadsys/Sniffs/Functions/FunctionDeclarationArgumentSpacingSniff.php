@@ -11,7 +11,6 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          https://github.com/loadsys/loadsys_codesniffer
- * @since         Loadsys CodeSniffer 0.1.18
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 if (class_exists('Squiz_Sniffs_Functions_FunctionDeclarationArgumentSpacingSniff', true) === false) {
