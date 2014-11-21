@@ -18,12 +18,14 @@ class TestHelper {
 
 	public function __construct() {
 		$this->_rootDir = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'Loadsys';
+
 		$includePath = explode(PATH_SEPARATOR, get_include_path());
 		array_unshift($includePath,
 			$this->_rootDir,
 			$this->_rootDir . '/Sniffs'
 		);
 		set_include_path(implode(PATH_SEPARATOR, array_unique($includePath)));
+
 		$this->_phpcs = new PHP_CodeSniffer_CLI();
 	}
 
