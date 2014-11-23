@@ -6,17 +6,17 @@ class VariablenamePass {
 
 	public $passingPublic = 'defined';
 
-	protected $_underScoredStart = 'OK';
+	protected $underScoredStart = 'OK';
 
-	protected $_underScored;
+	protected $underScored;
 
-	private $__doubleUnderscore = 'applications';
+	private $doubleUnderscore = 'applications';
 
 	public static $publicStatic = true;
 
-	protected static $_protectedStatic = true;
+	protected static $protectedStatic = true;
 
-	private static $__privateStatic = true;
+	private static $privateStatic = true;
 
 	/**
 	 * [setVariables description]
@@ -25,8 +25,8 @@ class VariablenamePass {
 	 */
 	public function setVariables() {
 		$this->passingPublic = 'changed';
-		$this->_underscored = 'has value now';
-		$this->__doubleUnderscore = 'not recommended';
+		$this->underscored = 'has value now';
+		$this->doubleUnderscore = 'not recommended';
 	}
 
 	/**
@@ -36,7 +36,7 @@ class VariablenamePass {
 	 */
 	public static function setStatics() {
 		self::$publicStatic = true;
-		self::$_protectedStatic = true;
-		self::$__privateStatic = true;
+		self::$protectedStatic = true;
+		self::$privateStatic = true;
 	}
 }
