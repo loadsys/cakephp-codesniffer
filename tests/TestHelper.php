@@ -1,5 +1,12 @@
 <?php
-require_once 'PHP/CodeSniffer/CLI.php';
+if (!class_exists('PHP_CodeSniffer_CLI')) {
+	$composerInstall = dirname(dirname(dirname(__FILE__))) . '/vendor/squizlabs/php_codesniffer/CodeSniffer/CLI.php';
+	if (file_exists($composerInstall)) {
+		require_once $composerInstall;
+	} else {
+		require_once 'PHP/CodeSniffer/CLI.php';
+	}
+}
 
 class TestHelper {
 
@@ -22,14 +29,14 @@ class TestHelper {
 		$this->_phpcs = new PHP_CodeSniffer_CLI();
 	}
 
-/**
- * Run PHPCS on a file.
- *
- * @param string $file to run.
- * @return string The output from phpcs.
- */
+	/**
+	 * Run PHPCS on a file.
+	 *
+	 * @param string $file to run.
+	 * @return string The output from phpcs.
+	 */
 	public function runPhpCs($file) {
-		$options = $this->_phpcs->getDefaults();
+		$defaults = $this->_phpcs->getDefaults();
 		$standard = $this->_rootDir . '/ruleset.xml';
 		if (
 			defined('PHP_CodeSniffer::VERSION') &&
@@ -37,11 +44,12 @@ class TestHelper {
 		) {
 			$standard = array($standard);
 		}
-		$options = array_merge($options, array(
+		$options = array(
 			'encoding' => 'utf-8',
 			'files' => array($file),
 			'standard' => $standard,
-		));
+			'showSources' => true,
+		) + $defaults;
 
 		// New PHPCS has a strange issue where the method arguments
 		// are not stored on the instance causing weird errors.

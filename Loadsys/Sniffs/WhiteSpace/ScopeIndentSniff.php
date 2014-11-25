@@ -10,7 +10,6 @@
  *
  * @copyright     2006 Squiz Pty Ltd (ABN 77 084 670 600)
  * @link          https://github.com/loadsys/loadsys_codesniffer
- * @since         CakePHP CodeSniffer 0.1.1
  * @license       https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  */
 
@@ -251,7 +250,7 @@ class Loadsys_Sniffs_WhiteSpace_ScopeIndentSniff implements PHP_CodeSniffer_Snif
 					// code that precedes them.
 					if ($indent !== $column) {
 						$error = 'Doc blocks indentation must match code block';
-						$phpcsFile->addError($error, $firstToken, 'DocCommentStartColumn');
+						$phpcsFile->addWarning($error, $firstToken, 'DocCommentStartColumn');
 					}
 				} elseif ($column !== $indent) {
 					if ($this->exact === true || $column < $indent) {

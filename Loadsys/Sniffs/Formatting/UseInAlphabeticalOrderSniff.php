@@ -10,7 +10,6 @@
  * Redistributions of files must retain the above copyright notice.
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @since         CakePHP CodeSniffer 0.1.10
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
@@ -78,7 +77,7 @@ class Loadsys_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_CodeS
 
 			foreach ($defined as $i => $name) {
 				if ($name !== $sorted[$i]) {
-					$error = 'Use classes must be in alphabetical order.';
+					$error = 'Use classes must be in alphabetical order. Was expecting ' . $sorted[$i];
 					$phpcsFile->addError($error, $used[$name], 'UseInAlphabeticalOrder', array());
 				}
 			}
@@ -124,7 +123,7 @@ class Loadsys_Sniffs_Formatting_UseInAlphabeticalOrderSniff implements PHP_CodeS
 		if (!empty($token['conditions'])) {
 			$scope = key($token['conditions']);
 		}
-		$this->_uses[$scope][$content] = 1;
+		$this->_uses[$scope][$content] = $stackPtr;
 	}
 
 /**
