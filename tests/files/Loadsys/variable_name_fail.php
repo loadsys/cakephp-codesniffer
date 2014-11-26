@@ -2,23 +2,29 @@
 
 class VariablenameFail {
 
-	public $_passing;
+	public $_publicWithUnderscore;
 
-	public $_passingPublic = 'defined';
+	public $__publicWithDoubleUnderscore;
 
-	protected $_underScoredStart = 'OK';
+	protected $_protectedWithUnderscore;
 
-	protected $__underScored;
+	protected $__protectedWithDoubleUnderscore;
 
-	private $__doubleUnderscore = 'applications';
+	private $_privateWithUnderscore;
 
-	public static $_publicStatic = true;
+	private $__privateWithDoubleUnderscore;
 
-	protected static $_protectedStatic = true;
+	public static $_publicStaticWithUnderscore = true;
 
-	private static $__privateStatic = true;
+	public static $__publicStaticWithDoubleUnderscore = true;
 
-	private static $_privateStaticSingleUnderscore = true;
+	protected static $_protectedStaticWithUnderscore = true;
+
+	protected static $__protectedStaticWithUnderscore = true;
+
+	private static $_privateStaticWithUnderscore = true;
+
+	private static $__privateStaticWithDoubleUnderscore = true;
 
 	/**
 	 * [setVariables description]
@@ -26,9 +32,14 @@ class VariablenameFail {
 	 * @return void
 	 */
 	public function setVariables() {
-		$this->_passingPublic = 'changed';
-		$this->__underScored = 'has value now';
-		$this->__doubleUnderscore = 'not recommended';
+		$this->_publicWithUnderscore = 'changed';
+		$this->__publicWithDoubleUnderscore = 'changed';
+
+		$this->_protectedWithUnderscore = 'changed';
+		$this->__protectedWithDoubleUnderscore = 'changed';
+
+		$this->_privateWithUnderscore = 'changed';
+		$this->__privateWithDoubleUnderscore = 'changed';
 	}
 
 	/**
@@ -37,9 +48,13 @@ class VariablenameFail {
 	 * @return void
 	 */
 	public static function setStatics() {
-		self::$_publicStatic = true;
-		self::$_protectedStatic = true;
-		self::$__privateStatic = true;
-		self::$_privateStaticSingleUnderscore = true;
+		self::$_publicStaticWithUnderscore = true;
+		self::$__publicStaticWithDoubleUnderscore = true;
+
+		self::$_protectedStaticWithUnderscore = true;
+		self::$__protectedStaticWithUnderscore = true;
+
+		self::$_privateStaticWithUnderscore = true;
+		self::$__privateStaticWithDoubleUnderscore = true;
 	}
 }
