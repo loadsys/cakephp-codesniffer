@@ -81,10 +81,17 @@
     However, we can still include sniffs and essentially ignore them
     as "errors" by setting their severity here.
   -->
-  <rule ref="Loadsys.NamingConventions.ValidFunctionName.PublicWithUnderscore">
+  <rule ref="Loadsys.NamingConventions.ValidFunctionName.PrivateNoUnderscore">
     <severity>0</severity>
   </rule>
   <rule ref="Loadsys.NamingConventions.ValidFunctionName.ProtectedNoUnderscore">
+    <severity>0</severity>
+  </rule>
+
+  <rule ref="Loadsys.NamingConventions.ValidVariableName.PrivateNoUnderscore">
+    <severity>0</severity>
+  </rule>
+  <rule ref="Loadsys.NamingConventions.ValidVariableName.ProtectedNoUnderscore">
     <severity>0</severity>
   </rule>
 
