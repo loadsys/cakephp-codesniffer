@@ -4,6 +4,7 @@ This package works with [phpcs](http://pear.php.net/manual/en/package.php.php-co
 and checks code against the coding standards used by Loadsys. It is based upon the
 [CakePHP coding standards](https://github.com/cakephp/cakephp-codesniffer) with some customizations.
 
+:construction: *WARNING: This `php_codesniffer-2.x` branch is a work in progress to support `phpcs 2`. It is currently working, but is probably not accurate.*
 
 ## Installation
 
