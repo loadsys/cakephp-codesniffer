@@ -13,7 +13,7 @@ Install these code sniffs via composer in your project's composer.json `require`
 ```json
 {
      "require": {
-         "loadsys/loadsys_codesniffer": "1.*"
+         "loadsys/loadsys_codesniffer": "dev-php_codesniffer-2.x"
      }
 }
 ```
@@ -21,7 +21,7 @@ Install these code sniffs via composer in your project's composer.json `require`
 Alternate method:
 
 	php composer.phar require loadsys/loadsys_codesniffer
-	bin/phpcs --config-set installed_paths vendor/loadsys/loadsys_codesniffer
+	vendor/bin/phpcs --config-set installed_paths vendor/loadsys/loadsys_codesniffer/,vendor/cakephp/cakephp-codesniffer/
 
 The second command lets `phpcs` know where to find your new sniffs. Ensure that you do not overwrite any existing `installed_paths` value.
 
