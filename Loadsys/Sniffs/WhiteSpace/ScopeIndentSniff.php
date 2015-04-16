@@ -9,7 +9,8 @@
  * modified for CakePHP.
  *
  * @copyright     2006 Squiz Pty Ltd (ABN 77 084 670 600)
- * @link          https://github.com/loadsys/loadsys_codesniffer
+ * @link          http://pear.php.net/package/PHP_CodeSniffer_CakePHP
+ * @since         CakePHP CodeSniffer 0.1.1
  * @license       https://github.com/squizlabs/PHP_CodeSniffer/blob/master/licence.txt BSD Licence
  */
 
@@ -242,31 +243,6 @@ class Loadsys_Sniffs_WhiteSpace_ScopeIndentSniff implements PHP_CodeSniffer_Snif
 						if (preg_match('|\*/$|', $content) !== 0) {
 							$commentOpen = false;
 						}
-					}
-				}
-
-				if ($isDocComment === true) {
-					// Doc block comments should be indented to the same level as the
-					// code that precedes them.
-					if ($indent !== $column) {
-						$error = 'Doc blocks indentation must match code block';
-						$phpcsFile->addWarning($error, $firstToken, 'DocCommentStartColumn');
-					}
-				} elseif ($column !== $indent) {
-					if ($this->exact === true || $column < $indent) {
-						$type = 'IncorrectExact';
-						$error = 'Line indented incorrectly; expected ';
-						if ($this->exact === false) {
-							$error .= 'at least ';
-							$type = 'Incorrect';
-						}
-
-						$error .= '%s spaces, found %s';
-						$data = array(
-							($indent - 1),
-							($column - 1),
-						);
-						$phpcsFile->addError($error, $firstToken, $type, $data);
 					}
 				}
 			}
