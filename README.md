@@ -4,6 +4,7 @@ This package works with [phpcs](http://pear.php.net/manual/en/package.php.php-co
 and checks code against the coding standards used by Loadsys. It is based upon the
 [CakePHP coding standards](https://github.com/cakephp/cakephp-codesniffer) with some customizations.
 
+:construction: *WARNING: This `php_codesniffer-2.x` branch is a work in progress to support `phpcs 2`. It is currently working, but is probably not accurate.*
 
 ## Installation
 
@@ -12,7 +13,7 @@ Install these code sniffs via composer in your project's composer.json `require`
 ```json
 {
      "require": {
-         "loadsys/loadsys_codesniffer": "1.*"
+         "loadsys/loadsys_codesniffer": "dev-php_codesniffer-2.x"
      }
 }
 ```
@@ -20,7 +21,7 @@ Install these code sniffs via composer in your project's composer.json `require`
 Alternate method:
 
 	php composer.phar require loadsys/loadsys_codesniffer
-	bin/phpcs --config-set installed_paths vendor/loadsys/loadsys_codesniffer
+	vendor/bin/phpcs --config-set installed_paths vendor/loadsys/loadsys_codesniffer/,vendor/cakephp/cakephp-codesniffer/
 
 The second command lets `phpcs` know where to find your new sniffs. Ensure that you do not overwrite any existing `installed_paths` value.
 
