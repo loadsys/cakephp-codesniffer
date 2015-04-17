@@ -8,18 +8,23 @@
 
  <rule ref="CakePHP"/>
 
- <!--
-  Enforce tab spacing
- -->
+ <!-- Enforce tab spacing -->
  <rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
  <rule ref="Generic.WhiteSpace.DisallowTabIndent.TabsUsed">
   <severity>0</severity>
  </rule>
 
+ <!-- Enforce opening function brace on same line -->
  <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie"/>
+ <rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace"/>
  <rule ref="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine">
   <severity>0</severity>
  </rule>
 
+ <!-- Enforce opening class brace on same line -->
+ <!-- @TODO - enforce this -->
+ <rule ref="PSR2.Classes.ClassDeclaration.OpenBraceNewLine">
+  <severity>0</severity>
+ </rule>
  <!-- All rules in ./Sniffs are included automatically -->
 </ruleset>
