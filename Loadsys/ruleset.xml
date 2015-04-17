@@ -26,5 +26,10 @@
  <rule ref="PSR2.Classes.ClassDeclaration.OpenBraceNewLine">
   <severity>0</severity>
  </rule>
+
+ <rule ref="Loadsys.NamingConventions.ValidPrivateProtectedFunctionName.ProtectedWithUnderscore">
+  <severity>0</severity>
+ </rule>
+ )
  <!-- All rules in ./Sniffs are included automatically -->
 </ruleset>
