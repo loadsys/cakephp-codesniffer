@@ -95,4 +95,18 @@
     <severity>0</severity>
   </rule>
 
+  <rule ref="Loadsys.NamingConventions.ValidPrivateProtectedFunctionName.PrivateWithUnderscore">
+    <severity>0</severity>
+  </rule>
+  <rule ref="Loadsys.NamingConventions.ValidPrivateProtectedFunctionName.ProtectedWithUnderscore">
+    <severity>0</severity>
+  </rule>
+
+  <rule ref="Loadsys.NamingConventions.ValidPrivateProtectedVariableName.PrivateWithUnderscore">
+    <severity>0</severity>
+  </rule>
+  <rule ref="Loadsys.NamingConventions.ValidPrivateProtectedVariableName.ProtectedUnderscore">
+    <severity>0</severity>
+  </rule>
+
 </ruleset>
