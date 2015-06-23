@@ -9,7 +9,6 @@ class Foo {
 	 */
 	public function doThing($foo) {
 	}
-
 }
 
 class Bar extends Foo {
@@ -19,5 +18,4 @@ class Bar extends Foo {
 	 */
 	public function doThing($foo) {
 	}
-
 }
