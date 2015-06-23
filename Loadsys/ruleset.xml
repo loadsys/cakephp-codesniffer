@@ -27,7 +27,11 @@
   <severity>0</severity>
  </rule>
 
- <rule ref="Loadsys.NamingConventions.ValidPrivateProtectedFunctionName.ProtectedWithUnderscore">
+ <rule ref="CakePHP.NamingConventions.ValidFunctionName.PrivateNoUnderscore">
+  <severity>0</severity>
+ </rule>
+
+ <rule ref="CakePHP.NamingConventions.ValidFunctionName.ProtectedNoUnderscore">
   <severity>0</severity>
  </rule>
  )
