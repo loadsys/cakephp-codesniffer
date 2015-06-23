@@ -9,6 +9,7 @@ php:
 before_script:
   - composer selfupdate
   - composer install
+  - vendor/bin/phpcs --config-set installed_paths ./vendor/cakephp/cakephp-codesniffer
 
 script:
   - vendor/bin/phpunit
