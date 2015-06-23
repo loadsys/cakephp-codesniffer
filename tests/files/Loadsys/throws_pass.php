@@ -31,5 +31,4 @@ class Throws {
 				throw new \Exception();
 		}
 	}
-
 }

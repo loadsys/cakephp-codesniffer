@@ -16,5 +16,4 @@ class TraitUser {
 		};
 		$visitor($this);
 	}
-
 }

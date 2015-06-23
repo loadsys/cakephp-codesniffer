@@ -10,5 +10,4 @@ class Foo {
 		foo as bar;
 		config as protected _config;
 	}
-
 }

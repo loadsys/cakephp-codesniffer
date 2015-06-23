@@ -27,7 +27,6 @@ class Foo {
 	 */
 	private function doSomethingPrivate($foo) {
 	}
-
 }
 
 class Bar extends Foo {
@@ -43,5 +42,4 @@ class Bar extends Foo {
 	 */
 	protected function doSomethingProtected($foo) {
 	}
-
 }
