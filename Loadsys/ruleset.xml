@@ -6,6 +6,8 @@
  <exclude-pattern>*/Config/*.ini.php</exclude-pattern>
  <exclude-pattern>/*/tmp/</exclude-pattern>
 
+ <rule ref="PSR1"/>
+ <rule ref="PSR2"/>
  <rule ref="CakePHP"/>
 
  <!-- Enforce tab spacing -->
@@ -14,15 +16,12 @@
   <severity>0</severity>
  </rule>
 
- <!-- Enforce opening function brace on same line -->
- <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie"/>
- <rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace"/>
+ <!-- Disregard opening function brace on a new line -->
  <rule ref="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine">
   <severity>0</severity>
  </rule>
 
- <!-- Enforce opening class brace on same line -->
- <!-- @TODO - enforce this -->
+ <!-- Disregard opening class brace on same line -->
  <rule ref="PSR2.Classes.ClassDeclaration.OpenBraceNewLine">
   <severity>0</severity>
  </rule>
@@ -34,6 +33,117 @@
  <rule ref="CakePHP.NamingConventions.ValidFunctionName.ProtectedNoUnderscore">
   <severity>0</severity>
  </rule>
- )
- <!-- All rules in ./Sniffs are included automatically -->
+
+ <!-- Relax some src/* and tests/* rules -->
+ <rule ref="PSR1.Files.SideEffects">
+  <exclude-pattern>*/tests/*</exclude-pattern>
+ </rule>
+ <rule ref="PSR1.Classes.ClassDeclaration">
+  <exclude-pattern>*/tests/*</exclude-pattern>
+ </rule>
+ <rule ref="PSR1.Methods.CamelCapsMethodName">
+  <exclude-pattern>*/tests/*</exclude-pattern>
+ </rule>
+ <rule ref="PEAR.NamingConventions.ValidClassName">
+  <exclude-pattern>*/tests/*</exclude-pattern>
+ </rule>
+ <rule ref="Squiz.Classes.ValidClassName">
+  <exclude-pattern>*/tests/*</exclude-pattern>
+ </rule>
+ <rule ref="CakePHP.Commenting.FunctionComment">
+  <exclude-pattern>*/tests/*</exclude-pattern>
+ </rule>
+ <rule ref="Squiz.NamingConventions.ValidFunctionName">
+  <exclude-pattern>*/src/*</exclude-pattern>
+  <exclude-pattern>*/tests/*</exclude-pattern>
+ </rule>
+ <rule ref="Generic.NamingConventions.CamelCapsFunctionName">
+  <exclude-pattern>*/src/*</exclude-pattern>
+  <exclude-pattern>*/tests/*</exclude-pattern>
+ </rule>
+ <rule ref="PEAR.NamingConventions.ValidFunctionName">
+  <exclude-pattern>*/src/*</exclude-pattern>
+  <exclude-pattern>*/tests/*</exclude-pattern>
+ </rule>
+
+ <!-- All PHP files MUST use the Unix LF (linefeed) line ending. -->
+ <rule ref="Generic.Files.LineEndings">
+  <properties>
+   <property name="eolChar" value="\n"/>
+  </properties>
+ </rule>
+
+ <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie"/>
+ <rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace"/>
+ <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
+ <rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
+ <rule ref="Squiz.Classes.LowercaseClassKeywords"/>
+ <rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop"/>
+ <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/>
+ <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
+ <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+ <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
+ <rule ref="Squiz.Commenting.DocCommentAlignment"/>
+ <rule ref="Generic.Commenting.Todo"/>
+ <rule ref="PEAR.ControlStructures.ControlSignature"/>
+ <rule ref="Generic.Files.LineEndings"/>
+ <rule ref="Generic.Formatting.NoSpaceAfterCast"/>
+ <rule ref="Squiz.Operators.ValidLogicalOperators"/>
+ <rule ref="Generic.PHP.DeprecatedFunctions"/>
+ <rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops"/>
+ <rule ref="Squiz.PHP.Eval"/>
+ <rule ref="Generic.PHP.ForbiddenFunctions"/>
+ <rule ref="Squiz.PHP.NonExecutableCode"/>
+ <rule ref="Generic.PHP.NoSilencedErrors"/>
+ <rule ref="Squiz.Scope.MemberVarScope"/>
+ <rule ref="Squiz.Scope.StaticThisUsage"/>
+ <rule ref="Squiz.WhiteSpace.CastSpacing"/>
+ <rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/>
+ <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
+ <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
+ <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
+ <rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop"/>
+ <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/>
+ <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
+ <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+ <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
+ <rule ref="Generic.Commenting.Todo"/>
+ <rule ref="Generic.Files.LineEndings"/>
+ <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
+ <rule ref="Generic.Formatting.NoSpaceAfterCast"/>
+ <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie"/>
+ <rule ref="Generic.Metrics.NestingLevel"/>
+ <rule ref="Generic.NamingConventions.ConstructorName"/>
+ <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+ <rule ref="Generic.NamingConventions.CamelCapsFunctionName"/>
+ <rule ref="Generic.PHP.DeprecatedFunctions"/>
+ <rule ref="Generic.PHP.ForbiddenFunctions"/>
+ <rule ref="Generic.PHP.LowerCaseConstant"/>
+ <rule ref="Generic.PHP.NoSilencedErrors"/>
+ <rule ref="Generic.Strings.UnnecessaryStringConcat"/>
+ <rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
+ <rule ref="MySource.PHP.EvalObjectFactory"/>
+ <rule ref="PEAR.ControlStructures.ControlSignature"/>
+ <rule ref="PEAR.ControlStructures.MultiLineCondition"/>
+ <rule ref="PEAR.NamingConventions.ValidClassName"/>
+ <rule ref="PEAR.NamingConventions.ValidFunctionName"/>
+ <rule ref="Squiz.PHP.CommentedOutCode"/>
+ <rule ref="Squiz.PHP.DisallowMultipleAssignments"/>
+ <rule ref="Squiz.PHP.DisallowObEndFlush"/>
+ <rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops"/>
+ <rule ref="Squiz.PHP.Eval"/>
+ <rule ref="Squiz.PHP.LowercasePHPFunctions"/>
+ <rule ref="Squiz.PHP.NonExecutableCode"/>
+ <rule ref="Squiz.Scope.MemberVarScope"/>
+ <rule ref="Squiz.Scope.MethodScope"/>
+ <rule ref="Squiz.Scope.StaticThisUsage"/>
+ <rule ref="Squiz.WhiteSpace.CastSpacing"/>
+ <rule ref="Squiz.WhiteSpace.ControlStructureSpacing"/>
+ <rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace"/>
+ <rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/>
+ <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
+ <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
+ <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
+
+ <rule ref="./Sniffs"/>
 </ruleset>
