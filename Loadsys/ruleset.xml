@@ -84,7 +84,7 @@
  <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
  <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
  <rule ref="Squiz.Commenting.DocCommentAlignment"/>
- <rule ref="Generic.Commenting.Todo"/>
+ <rule ref="Generic.Commenting.Fixme"/>
  <rule ref="PEAR.ControlStructures.ControlSignature"/>
  <rule ref="Generic.Files.LineEndings"/>
  <rule ref="Generic.Formatting.NoSpaceAfterCast"/>
@@ -107,7 +107,6 @@
  <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
  <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
  <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
- <rule ref="Generic.Commenting.Todo"/>
  <rule ref="Generic.Files.LineEndings"/>
  <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
  <rule ref="Generic.Formatting.NoSpaceAfterCast"/>
