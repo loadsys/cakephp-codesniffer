@@ -14,22 +14,22 @@ class VariablenamePass {
 
 	private static $privateStatic = true;
 
-	/**
-	 * [setVariables description]
-	 *
-	 * @return void
-	 */
+/**
+ * [setVariables description]
+ *
+ * @return void
+ */
 	public function setVariables() {
 		$this->public = 'changed';
 		$this->protected = 'has value now';
 		$this->private = 'not recommended';
 	}
 
-	/**
-	 * [setStatics description]
-	 *
-	 * @return void
-	 */
+/**
+ * [setStatics description]
+ *
+ * @return void
+ */
 	public static function setStatics() {
 		self::$publicStatic = true;
 		self::$protectedStatic = true;
