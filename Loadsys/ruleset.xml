@@ -34,6 +34,10 @@
   <severity>0</severity>
  </rule>
 
+ <rule ref="Loadsys.NamingConventions.ValidPrivateProtectedVariableName">
+  <exclude-pattern>*/src/model/entity/*</exclude-pattern>
+ </rule>
+
  <!-- Relax some src/* and tests/* rules -->
  <rule ref="PSR1.Files.SideEffects">
   <exclude-pattern>*/tests/*</exclude-pattern>
