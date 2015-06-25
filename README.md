@@ -1,31 +1,26 @@
-# Loadsys Code Sniffer [![Build Status](https://travis-ci.org/loadsys/loadsys_codesniffer.png?branch=master)](http://travis-ci.org/loadsys/loadsys_codesniffer)
+# Loadsys Code Sniffer 
+
+[![Latest Version](https://img.shields.io/github/release/loadsys/loadsys_codesniffer.svg?style=flat-square)](https://github.com/loadsys/loadsys_codesniffer/releases)
+[![Build Status](https://travis-ci.org/loadsys/loadsys_codesniffer.png?branch=master)](http://travis-ci.org/loadsys/loadsys_codesniffer)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.txt)
+[![Total Downloads](https://img.shields.io/packagist/dt/loadsys/loadsys_codesniffer.svg?style=flat-square)](https://packagist.org/packages/loadsys/loadsys_codesniffer)
 
 This package works with [phpcs](http://pear.php.net/manual/en/package.php.php-codesniffer.php)
 and checks code against the coding standards used by Loadsys. It is based upon the
-[CakePHP coding standards](https://github.com/cakephp/cakephp-codesniffer) with some customizations.
+[CakePHP coding standards](https://github.com/cakephp/cakephp-codesniffer) with some customizations specific to the Loadsys internal standards and preference.
 
+:warning: This code is designed to target Cake 2.x projects, for Cake 3.x projects, use one of the latests `3.x` releases of this project.
 
 ## Installation
 
-Install these code sniffs via composer in your project's composer.json `require` or `require-dev` property:
+Install these code sniffs via composer in your project:
 
-```json
-{
-     "require": {
-         "loadsys/loadsys_codesniffer": "1.*"
-     }
-}
+```bash
+php composer.phar require loadsys/loadsys_codesniffer:~2.0
+vendor/bin/phpcs --config-set installed_paths vendor/loadsys/loadsys_codesniffer,vendor/cakephp/cakephp_codesniffer
 ```
 
-Alternate method:
-
-	php composer.phar require loadsys/loadsys_codesniffer
-	bin/phpcs --config-set installed_paths vendor/loadsys/loadsys_codesniffer
-
-The second command lets `phpcs` know where to find your new sniffs. Ensure that you do not overwrite any existing `installed_paths` value.
-
-For both Loadsys-Skeleton-based apps and CakePHP 3.x apps, the default composer bin is at root of your app, so replace `vendor/bin/` by `bin/` in all commands.
-
+The second command lets `phpcs` know where to find your the Loadsys and CakePHP sniffs. Ensure that you do not overwrite any existing `installed_paths` value, if you have other custom PHPCS sniff locations.
 
 ## Usage
 
