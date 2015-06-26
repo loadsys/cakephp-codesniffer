@@ -16,8 +16,8 @@ and checks code against the coding standards used by Loadsys. It is based upon t
 Install these code sniffs via composer in your project:
 
 ```bash
-php composer.phar require loadsys/loadsys_codesniffer:~3.0
-vendor/bin/phpcs --config-set installed_paths vendor/loadsys/loadsys_codesniffer,vendor/cakephp/cakephp_codesniffer
+$ php composer.phar require loadsys/loadsys_codesniffer:~3.0
+$ vendor/bin/phpcs --config-set installed_paths vendor/loadsys/loadsys_codesniffer,vendor/cakephp/cakephp-codesniffer
 ```
 
 The second command lets `phpcs` know where to find your the Loadsys and CakePHP sniffs. Ensure that you do not overwrite any existing `installed_paths` value, if you have other custom PHPCS sniff locations.
@@ -26,11 +26,11 @@ The second command lets `phpcs` know where to find your the Loadsys and CakePHP 
 
 Once `installed_paths` is configured, you can run phpcs using:
 
-	bin/phpcs --standard=Loadsys
+```bash
+$ bin/phpcs --standard=Loadsys
+```
 
-*Warning* when these sniffs are installed with composer, ensure that you have configured the CodeSniffer `installed_paths` setting. Alternatively you can target the full path to the Loadsys folder:
-
-	bin/phpcs --standard=vendor/loadsys/loadsys_codesniffer/Loadsys files/to/sniff/
+*Warning* when these sniffs are installed with composer, ensure that you have configured the CodeSniffer `installed_paths` setting set for both the CakePHP Standard and the Loadsys Standard.
 
 
 # Contributing
