@@ -123,7 +123,6 @@
  <rule ref="Generic.PHP.ForbiddenFunctions"/>
  <rule ref="Generic.PHP.LowerCaseConstant"/>
  <rule ref="Generic.PHP.NoSilencedErrors"/>
- <rule ref="Generic.Strings.UnnecessaryStringConcat"/>
  <rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
  <rule ref="MySource.PHP.EvalObjectFactory"/>
  <rule ref="PEAR.ControlStructures.ControlSignature"/>
