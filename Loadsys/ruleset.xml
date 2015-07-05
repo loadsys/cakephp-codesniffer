@@ -35,6 +35,9 @@
  </rule>
 
  <rule ref="Loadsys.NamingConventions.ValidPrivateProtectedVariableName">
+
+ <rule ref="Loadsys.NamingConventions.ValidPrivateProtectedFunctionName">
+  <!-- Exclude the Entity path from the Private/Protected Functions no underscores -->
   <exclude-pattern>*/src/model/entity/*</exclude-pattern>
  </rule>
 
