@@ -85,7 +85,7 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedVariableNameSniff ex
 		if ($this->_isValidVar($varName) === false) {
 			$error = 'Variable "%s" is not in valid camel caps format';
 			$data = array($originalVarName);
-			$phpcsFile->addError($error, $stackPtr, 'NotCamelCaps', $data);
+			$phpcsFile->addWarning($error, $stackPtr, 'NotCamelCaps', $data);
 		}
 	}
 
@@ -109,14 +109,14 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedVariableNameSniff ex
 			if (substr($varName, 0, 1) === '_') {
 				$error = 'Public member variable "%s" must not contain a leading underscore';
 				$data = array($varName);
-				$phpcsFile->addError($error, $stackPtr, 'PublicHasUnderscore', $data);
+				$phpcsFile->addWarning($error, $stackPtr, 'PublicHasUnderscore', $data);
 				return;
 			}
 		} elseif ($private === true) {
 			if (substr($varName, 0, 2) === '__') {
 				$error = 'Private member variable "%s" must not contain two leading underscores';
 				$data = array($varName);
-				$phpcsFile->addError($error, $stackPtr, 'PrivateWithUnderscore', $data);
+				$phpcsFile->addWarning($error, $stackPtr, 'PrivateWithUnderscore', $data);
 				return;
 			}
 			$filename = $phpcsFile->getFilename();
@@ -129,7 +129,7 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedVariableNameSniff ex
 			if (substr($varName, 0, 1) == '_') {
 				$error = 'Protected member variable "%s" must not contain a leading underscore';
 				$data = array($varName);
-				$phpcsFile->addError($error, $stackPtr, 'ProtectedUnderscore', $data);
+				$phpcsFile->addWarning($error, $stackPtr, 'ProtectedUnderscore', $data);
 				return;
 			}
 		}
@@ -145,7 +145,7 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedVariableNameSniff ex
 		if ($this->_isValidVar($varName, $public) === false) {
 			$error = 'Member variable "%s" is not in valid camel caps format';
 			$data = array($varName);
-			$phpcsFile->addError($error, $stackPtr, 'MemberVarNotCamelCaps', $data);
+			$phpcsFile->addWarning($error, $stackPtr, 'MemberVarNotCamelCaps', $data);
 		}
 	}
 
@@ -191,7 +191,7 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedVariableNameSniff ex
 				if ($this->_isValidVar($varName) === false) {
 					$error = 'Variable "%s" is not in valid camel caps format';
 					$data = array($originalVarName);
-					$phpcsFile->addError($error, $stackPtr, 'StringVarNotCamelCaps', $data);
+					$phpcsFile->addWarning($error, $stackPtr, 'StringVarNotCamelCaps', $data);
 				}
 			}
 		}

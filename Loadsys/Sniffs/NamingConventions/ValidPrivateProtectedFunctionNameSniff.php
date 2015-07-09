@@ -98,7 +98,7 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedFunctionNameSniff ex
 		if ($isPublic === true) {
 			if ($methodName[0] === '_') {
 				$error = 'Public method name "%s" must not be prefixed with underscore';
-				$phpcsFile->addError($error, $stackPtr, 'PublicWithUnderscore', $errorData);
+				$phpcsFile->addWarning($error, $stackPtr, 'PublicWithUnderscore', $errorData);
 				return;
 			}
 			// Underscored public methods in controller are allowed to break our rules.
@@ -116,13 +116,13 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedFunctionNameSniff ex
 		} elseif ($isPrivate === true) {
 			if ($methodName[0] === '_' || substr($methodName, 0, 2) === '__') {
 				$error = 'Private method name "%s" must be prefixed with no underscores';
-				$phpcsFile->addError($error, $stackPtr, 'PrivateWithUnderscore', $errorData);
+				$phpcsFile->a($error, $stackPtr, 'PrivateWithUnderscore', $errorData);
 				return;
 			}
 		} else {
 			if ($methodName[0] === '_' || substr($methodName, 0, 2) === '__') {
 				$error = 'Protected method name "%s" must be prefixed with no underscores';
-				$phpcsFile->addError($error, $stackPtr, 'ProtectedWithUnderscore', $errorData);
+				$phpcsFile->addWarning($error, $stackPtr, 'ProtectedWithUnderscore', $errorData);
 				return;
 			}
 		}
@@ -134,7 +134,7 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedFunctionNameSniff ex
 				ucfirst($scope),
 				$methodName,
 			);
-			$phpcsFile->addError($error, $stackPtr, 'ScopeNotCamelCaps', $data);
+			$phpcsFile->addWarning($error, $stackPtr, 'ScopeNotCamelCaps', $data);
 			return;
 		}
 	}
