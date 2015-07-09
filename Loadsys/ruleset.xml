@@ -112,7 +112,6 @@
  <rule ref="Squiz.Classes.LowercaseClassKeywords"/>
  <rule ref="Squiz.Commenting.DocCommentAlignment"/>
  <rule ref="Squiz.Operators.ValidLogicalOperators"/>
- <rule ref="Squiz.PHP.CommentedOutCode"/>
  <rule ref="Squiz.PHP.DisallowMultipleAssignments"/>
  <rule ref="Squiz.PHP.DisallowObEndFlush"/>
  <rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops"/>
