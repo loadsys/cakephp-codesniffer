@@ -35,13 +35,11 @@
  </rule>
 
  <rule ref="Loadsys.NamingConventions.ValidPrivateProtectedVariableName">
-  <!-- Exclude the Entity path from the Private/Protected Vars no underscores -->
-  <exclude-pattern>*/src/model/entity/*</exclude-pattern>
+  <type>warning</type>
  </rule>
 
  <rule ref="Loadsys.NamingConventions.ValidPrivateProtectedFunctionName">
-  <!-- Exclude the Entity path from the Private/Protected Functions no underscores -->
-  <exclude-pattern>*/src/model/entity/*</exclude-pattern>
+  <type>warning</type>
  </rule>
 
  <!-- Relax some src/* and tests/* rules -->
@@ -83,48 +81,21 @@
   </properties>
  </rule>
 
- <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie"/>
- <rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace"/>
- <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
- <rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
- <rule ref="Squiz.Classes.LowercaseClassKeywords"/>
  <rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop"/>
  <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/>
  <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
  <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
  <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
- <rule ref="Squiz.Commenting.DocCommentAlignment"/>
  <rule ref="Generic.Commenting.Fixme"/>
- <rule ref="PEAR.ControlStructures.ControlSignature"/>
- <rule ref="Generic.Files.LineEndings"/>
- <rule ref="Generic.Formatting.NoSpaceAfterCast"/>
- <rule ref="Squiz.Operators.ValidLogicalOperators"/>
- <rule ref="Generic.PHP.DeprecatedFunctions"/>
- <rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops"/>
- <rule ref="Squiz.PHP.Eval"/>
- <rule ref="Generic.PHP.ForbiddenFunctions"/>
- <rule ref="Squiz.PHP.NonExecutableCode"/>
- <rule ref="Generic.PHP.NoSilencedErrors"/>
- <rule ref="Squiz.Scope.MemberVarScope"/>
- <rule ref="Squiz.Scope.StaticThisUsage"/>
- <rule ref="Squiz.WhiteSpace.CastSpacing"/>
- <rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/>
- <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
- <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
- <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
- <rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop"/>
- <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/>
- <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
- <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
- <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
+ <rule ref="Generic.Commenting.Todo"/>
  <rule ref="Generic.Files.LineEndings"/>
  <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
  <rule ref="Generic.Formatting.NoSpaceAfterCast"/>
  <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie"/>
  <rule ref="Generic.Metrics.NestingLevel"/>
+ <rule ref="Generic.NamingConventions.CamelCapsFunctionName"/>
  <rule ref="Generic.NamingConventions.ConstructorName"/>
  <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
- <rule ref="Generic.NamingConventions.CamelCapsFunctionName"/>
  <rule ref="Generic.PHP.DeprecatedFunctions"/>
  <rule ref="Generic.PHP.ForbiddenFunctions"/>
  <rule ref="Generic.PHP.LowerCaseConstant"/>
@@ -136,7 +107,10 @@
  <rule ref="PEAR.ControlStructures.MultiLineCondition"/>
  <rule ref="PEAR.NamingConventions.ValidClassName"/>
  <rule ref="PEAR.NamingConventions.ValidFunctionName"/>
- <rule ref="Squiz.PHP.CommentedOutCode"/>
+ <rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
+ <rule ref="Squiz.Classes.LowercaseClassKeywords"/>
+ <rule ref="Squiz.Commenting.DocCommentAlignment"/>
+ <rule ref="Squiz.Operators.ValidLogicalOperators"/>
  <rule ref="Squiz.PHP.DisallowMultipleAssignments"/>
  <rule ref="Squiz.PHP.DisallowObEndFlush"/>
  <rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops"/>

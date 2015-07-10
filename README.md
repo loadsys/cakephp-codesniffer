@@ -32,6 +32,11 @@ $ bin/phpcs --standard=Loadsys
 
 *Warning* when these sniffs are installed with composer, ensure that you have configured the CodeSniffer `installed_paths` setting set for both the CakePHP Standard and the Loadsys Standard.
 
+A typical option is to supress warnings when running on Travis to do so use the `-n` CLI option to supress warnings when running via Travis.
+
+```bash
+$ bin/phpcs -n --standard=Loadsys
+```
 
 # Contributing
 
