@@ -35,9 +35,11 @@
  </rule>
 
  <rule ref="Loadsys.NamingConventions.ValidPrivateProtectedVariableName">
+  <type>warning</type>
  </rule>
 
  <rule ref="Loadsys.NamingConventions.ValidPrivateProtectedFunctionName">
+  <type>warning</type>
  </rule>
 
  <!-- Relax some src/* and tests/* rules -->
