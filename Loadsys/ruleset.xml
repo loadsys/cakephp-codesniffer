@@ -81,6 +81,7 @@
   </properties>
  </rule>
 
+ <rule ref="Generic.Arrays.DisallowLongArraySyntax" />
  <rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop"/>
  <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/>
  <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
