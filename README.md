@@ -1,4 +1,4 @@
-# Loadsys Code Sniffer 
+# Loadsys Code Sniffer
 
 [![Latest Version](https://img.shields.io/github/release/loadsys/loadsys_codesniffer.svg?style=flat-square)](https://github.com/loadsys/loadsys_codesniffer/releases)
 [![Build Status](https://travis-ci.org/loadsys/loadsys_codesniffer.png?branch=master)](http://travis-ci.org/loadsys/loadsys_codesniffer)
@@ -62,3 +62,22 @@ Parse the output from `vendor/bin/phpcs --standard=./Loadsys tests/files/` looki
 
 * Make sure there are no filenames ending in `_pass.php` listed. (This _should_ be redundant, but you never know.)
 * Compare the list of warnings and errors generated for each file against some master list of expected failures. Maybe annotations in the Sniff classes? `@test	filename_fail.php	Error message reported.` Other than ending in `_pass.php` the names of the files don't matter, so perhaps they could be conventionalized to indicate the error expected?
+
+
+* Sniffing the sniffs: `vendor/bin/phpcs --standard=Loadsys -p Loadsys/`
+
+* Running unit tests:
+
+	```
+	# Run once:
+	composer install
+	vendor/bin/phpcs --config-set installed_paths vendor/cakephp/cakephp-codesniffer
+	# Run repeatedly:
+	vendor/bin/phpunit
+	```
+
+* Manually reviewing sniffs for accuracy (since it's possible for `tests/files/` that do **not** end in `pass.php` to fail for the wrong reasons.
+
+	* Confirm all the tests that SHOULD pass, DO pass: `vendor/bin/phpcs --standard=Loadsys -p tests/files/*_pass.php`
+
+	* Confirm the tests that should warn or error, DO warn or error, ONLY for the correct reasons (should match filenames): `vendor/bin/phpcs --standard=Loadsys -p tests/files/`
