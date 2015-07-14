@@ -5,20 +5,20 @@ $pass = function ($one, $two, $three) use ($derp) {
 	echo $derp;
 };
 
-$passArray = array(
+$passArray = [
 	'hello' => 'Beakman',
 	'whatsup' => function ($one, $two) use ($derp) {
 		echo $one . $two;
 	}
-);
+];
 
 $fail = function($one, $two, $three) use ($derp) {
 	echo $derp . $one;
 };
 
-$failTooManySpaces = array(
+$failTooManySpaces = [
 	'hello' => 'Beakman',
 	'whatsup' => function  ($one, $two) use ($derp) {
 		echo $one . $two;
 	}
-);
+];

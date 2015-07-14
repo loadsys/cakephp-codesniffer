@@ -26,7 +26,7 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedFunctionNameSniff ex
  *
  * @var array
  */
-	protected $_magicMethods = array(
+	protected $magicMethods = [
 		'construct',
 		'destruct',
 		'call',
@@ -42,23 +42,23 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedFunctionNameSniff ex
 		'set_state',
 		'clone',
 		'invoke',
-	);
+	];
 
 /**
  * Constructs a PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff.
  */
 	public function __construct() {
-		parent::__construct(array(T_CLASS, T_INTERFACE), array(T_FUNCTION), true);
+		parent::__construct([T_CLASS, T_INTERFACE], [T_FUNCTION], true);
 	}
 
-/**
- * Processes the tokens within the scope.
- *
- * @param PHP_CodeSniffer_File $phpcsFile The file being processed.
- * @param integer $stackPtr The position where this token was found.
- * @param integer $currScope The position of the current scope.
- * @return void
- */
+	/**
+	 * Processes the tokens within the scope.
+	 *
+	 * @param PHP_CodeSniffer_File $phpcsFile The file being processed.
+	 * @param int $stackPtr The position where this token was found.
+	 * @param int $currScope The position of the current scope.
+	 * @return void
+	 */
 	protected function processTokenWithinScope(PHP_CodeSniffer_File $phpcsFile, $stackPtr, $currScope) {
 		$methodName = $phpcsFile->getDeclarationName($stackPtr);
 		if ($methodName === null) {
@@ -67,7 +67,7 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedFunctionNameSniff ex
 		}
 
 		$className = $phpcsFile->getDeclarationName($currScope);
-		$errorData = array($className . '::' . $methodName);
+		$errorData = [$className . '::' . $methodName];
 
 		// PHP4 constructors are allowed to break our rules.
 		if ($methodName === $className) {
@@ -80,7 +80,7 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedFunctionNameSniff ex
 		}
 
 		// Ignore magic methods
-		if (preg_match('/^__(' . implode('|', $this->_magicMethods) . ')$/', $methodName)) {
+		if (preg_match('/^__(' . implode('|', $this->magicMethods) . ')$/', $methodName)) {
 			return;
 		}
 
@@ -101,14 +101,17 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedFunctionNameSniff ex
 				$phpcsFile->addError($error, $stackPtr, 'PublicWithUnderscore', $errorData);
 				return;
 			}
+
 			// Underscored public methods in controller are allowed to break our rules.
 			if (substr($className, -10) === 'Controller') {
 				return;
 			}
+
 			// Underscored public methods in shells are allowed to break our rules.
 			if (substr($className, -5) === 'Shell') {
 				return;
 			}
+
 			// Underscored public methods in tasks are allowed to break our rules.
 			if (substr($className, -4) === 'Task') {
 				return;
@@ -130,23 +133,22 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedFunctionNameSniff ex
 		$testMethodName = ltrim($methodName, '_');
 		if (PHP_CodeSniffer::isCamelCaps($testMethodName, false, true, false) === false) {
 			$error = '%s method name "%s" is not in camel caps format';
-			$data = array(
+			$data = [
 				ucfirst($scope),
 				$methodName,
-			);
+			];
 			$phpcsFile->addError($error, $stackPtr, 'ScopeNotCamelCaps', $data);
 			return;
 		}
 	}
 
-/**
- * Processes the tokens outside the scope.
- *
- * @param PHP_CodeSniffer_File $phpcsFile The file being processed.
- * @param integer $stackPtr  The position where this token was found.
- * @return void
- */
+	/**
+	 * Processes the tokens outside the scope.
+	 *
+	 * @param PHP_CodeSniffer_File $phpcsFile The file being processed.
+	 * @param int $stackPtr  The position where this token was found.
+	 * @return void
+	 */
 	protected function processTokenOutsideScope(PHP_CodeSniffer_File $phpcsFile, $stackPtr) {
 	}
-
 }

@@ -26,11 +26,7 @@
   <severity>0</severity>
  </rule>
 
- <rule ref="CakePHP.NamingConventions.ValidFunctionName.PrivateNoUnderscore">
-  <severity>0</severity>
- </rule>
-
- <rule ref="CakePHP.NamingConventions.ValidFunctionName.ProtectedNoUnderscore">
+ <rule ref="CakePHP.NamingConventions.ValidFunctionName.PrivateMethodInCore">
   <severity>0</severity>
  </rule>
 
@@ -81,6 +77,7 @@
   </properties>
  </rule>
 
+ <rule ref="Generic.Arrays.DisallowLongArraySyntax" />
  <rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop"/>
  <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/>
  <rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>

@@ -14,33 +14,29 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-if (class_exists('PHP_CodeSniffer_Standards_AbstractVariableSniff', true) === false) {
-	throw new PHP_CodeSniffer_Exception('Class PHP_CodeSniffer_Standards_AbstractVariableSniff not found');
-}
-
 /**
  * Checks the naming of variables and member variables.
  *
  */
 class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedVariableNameSniff extends PHP_CodeSniffer_Standards_AbstractVariableSniff {
 
-/**
- * Processes this test, when one of its tokens is encountered.
- *
- * Processes variables, we skip processing object properties because
- * they could come from things like PDO which doesn't follow the normal
- * conventions and causes additional failures.
- *
- * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
- * @param integer $stackPtr  The position of the current token in the
- *    stack passed in $tokens.
- * @return void
- */
+	/**
+	 * Processes this test, when one of its tokens is encountered.
+	 *
+	 * Processes variables, we skip processing object properties because
+	 * they could come from things like PDO which doesn't follow the normal
+	 * conventions and causes additional failures.
+	 *
+	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param int $stackPtr  The position of the current token in the
+	 *    stack passed in $tokens.
+	 * @return void
+	 */
 	protected function processVariable(PHP_CodeSniffer_File $phpcsFile, $stackPtr) {
 		$tokens = $phpcsFile->getTokens();
 		$varName = ltrim($tokens[$stackPtr]['content'], '$');
 
-		$phpReservedVars = array(
+		$phpReservedVars = [
 			'_SERVER',
 			'_GET',
 			'_POST',
@@ -50,7 +46,7 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedVariableNameSniff ex
 			'_COOKIE',
 			'_FILES',
 			'GLOBALS',
-		);
+		];
 
 		// If it's a php reserved var, then its ok.
 		if (in_array($varName, $phpReservedVars) === true) {
@@ -62,13 +58,13 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedVariableNameSniff ex
 		// check the main part of the variable name.
 		$originalVarName = $varName;
 		if (substr($varName, 0, 1) === '_') {
-			$objOperator = $phpcsFile->findPrevious(array(T_WHITESPACE), ($stackPtr - 1), null, true);
+			$objOperator = $phpcsFile->findPrevious([T_WHITESPACE], ($stackPtr - 1), null, true);
 			if ($tokens[$objOperator]['code'] === T_DOUBLE_COLON) {
 				// The variable lives within a class, and is referenced like
 				// this: MyClass::$_variable, so we don't know its scope.
 				$inClass = true;
 			} else {
-				$inClass = $phpcsFile->hasCondition($stackPtr, array(T_TRAIT, T_CLASS, T_INTERFACE));
+				$inClass = $phpcsFile->hasCondition($stackPtr, [T_TRAIT, T_CLASS, T_INTERFACE]);
 			}
 
 			if ($inClass === true) {
@@ -82,21 +78,21 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedVariableNameSniff ex
 			return;
 		}
 
-		if ($this->_isValidVar($varName) === false) {
+		if ($this->isValidVar($varName) === false) {
 			$error = 'Variable "%s" is not in valid camel caps format';
-			$data = array($originalVarName);
+			$data = [$originalVarName];
 			$phpcsFile->addError($error, $stackPtr, 'NotCamelCaps', $data);
 		}
 	}
 
-/**
- * Processes class member variables.
- *
- * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
- * @param integer $stackPtr  The position of the current token in the
- *    stack passed in $tokens.
- * @return void
- */
+	/**
+	 * Processes class member variables.
+	 *
+	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param int $stackPtr  The position of the current token in the
+	 *    stack passed in $tokens.
+	 * @return void
+	 */
 	protected function processMemberVar(PHP_CodeSniffer_File $phpcsFile, $stackPtr) {
 		$tokens = $phpcsFile->getTokens();
 
@@ -108,27 +104,28 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedVariableNameSniff ex
 		if ($public === true) {
 			if (substr($varName, 0, 1) === '_') {
 				$error = 'Public member variable "%s" must not contain a leading underscore';
-				$data = array($varName);
+				$data = [$varName];
 				$phpcsFile->addError($error, $stackPtr, 'PublicHasUnderscore', $data);
 				return;
 			}
 		} elseif ($private === true) {
 			if (substr($varName, 0, 2) === '__') {
 				$error = 'Private member variable "%s" must not contain two leading underscores';
-				$data = array($varName);
+				$data = [$varName];
 				$phpcsFile->addError($error, $stackPtr, 'PrivateWithUnderscore', $data);
 				return;
 			}
+
 			$filename = $phpcsFile->getFilename();
 			if (strpos($filename, '/lib/Cake/') !== false) {
 				$warning = 'Private variable "%s" in CakePHP core is discouraged';
-				$data = array($varName);
+				$data = [$varName];
 				$phpcsFile->addWarning($warning, $stackPtr, 'PrivateInCore', $data);
 			}
-		} else {  // protected var
+		} else { // protected var
 			if (substr($varName, 0, 1) == '_') {
 				$error = 'Protected member variable "%s" must not contain a leading underscore';
-				$data = array($varName);
+				$data = [$varName];
 				$phpcsFile->addError($error, $stackPtr, 'ProtectedUnderscore', $data);
 				return;
 			}
@@ -142,24 +139,24 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedVariableNameSniff ex
 			return;
 		}
 
-		if ($this->_isValidVar($varName, $public) === false) {
+		if ($this->isValidVar($varName, $public) === false) {
 			$error = 'Member variable "%s" is not in valid camel caps format';
-			$data = array($varName);
+			$data = [$varName];
 			$phpcsFile->addError($error, $stackPtr, 'MemberVarNotCamelCaps', $data);
 		}
 	}
 
-/**
- * Processes the variable found within a double quoted string.
- *
- * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
- * @param integer $stackPtr The position of the double quoted string.
- * @return void
- */
+	/**
+	 * Processes the variable found within a double quoted string.
+	 *
+	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param int $stackPtr The position of the double quoted string.
+	 * @return void
+	 */
 	protected function processVariableInString(PHP_CodeSniffer_File $phpcsFile, $stackPtr) {
 		$tokens = $phpcsFile->getTokens();
 
-		$phpReservedVars = array(
+		$phpReservedVars = [
 			'_SERVER',
 			'_GET',
 			'_POST',
@@ -169,7 +166,7 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedVariableNameSniff ex
 			'_COOKIE',
 			'_FILES',
 			'GLOBALS',
-		);
+		];
 
 		if (preg_match_all('|[^\\\]\$([a-zA-Z0-9_]+)|', $tokens[$stackPtr]['content'], $matches) !== 0) {
 			foreach ($matches[1] as $varName) {
@@ -183,44 +180,46 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedVariableNameSniff ex
 				// check the main part of the variable name.
 				$originalVarName = $varName;
 				if (substr($varName, 0, 1) === '_') {
-					if ($phpcsFile->hasCondition($stackPtr, array(T_CLASS, T_INTERFACE)) === true) {
+					if ($phpcsFile->hasCondition($stackPtr, [T_CLASS, T_INTERFACE]) === true) {
 						$varName = substr($varName, 1);
 					}
 				}
 
-				if ($this->_isValidVar($varName) === false) {
+				if ($this->isValidVar($varName) === false) {
 					$error = 'Variable "%s" is not in valid camel caps format';
-					$data = array($originalVarName);
+					$data = [$originalVarName];
 					$phpcsFile->addError($error, $stackPtr, 'StringVarNotCamelCaps', $data);
 				}
 			}
 		}
 	}
 
-/**
- * Check that a variable is a valid shape.
- *
- * Variables in CakePHP can either be $fooBar, $FooBar, $fooBar, or $FooBar.
- *
- * @param string $string The variable to check.
- * @param boolea $public Whether or not the variable is public.
- * @return boolean
- */
-	protected function _isValidVar($string, $public = true) {
+	/**
+	 * Check that a variable is a valid shape.
+	 *
+	 * Variables in CakePHP can either be $fooBar, $FooBar, $fooBar, or $FooBar.
+	 *
+	 * @param string $string The variable to check.
+	 * @param boolea $public Whether or not the variable is public.
+	 * @return bool
+	 */
+	protected function isValidVar($string, $public = true) {
 		$firstChar = '[a-zA-Z]';
 		if (preg_match("|^$firstChar|", $string) === 0) {
 			return false;
 		}
+
 		$firstStringCount = 1;
 		if (preg_match("|^__|", $string)) {
 			$firstStringCount = 2;
 		}
+
 		// Check that the name only contains legal characters.
 		$legalChars = 'a-zA-Z0-9';
 		if (preg_match("|[^$legalChars]|", substr($string, $firstStringCount)) > 0) {
 			return false;
 		}
+
 		return true;
 	}
-
 }
