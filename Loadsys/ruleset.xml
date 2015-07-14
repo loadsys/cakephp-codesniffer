@@ -26,11 +26,7 @@
   <severity>0</severity>
  </rule>
 
- <rule ref="CakePHP.NamingConventions.ValidFunctionName.PrivateNoUnderscore">
-  <severity>0</severity>
- </rule>
-
- <rule ref="CakePHP.NamingConventions.ValidFunctionName.ProtectedNoUnderscore">
+ <rule ref="CakePHP.NamingConventions.ValidFunctionName.PrivateMethodInCore">
   <severity>0</severity>
  </rule>
 
