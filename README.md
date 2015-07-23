@@ -45,7 +45,7 @@ $ bin/phpcs -n --standard=Loadsys
 * Clone the project and create a new feature branch.
 * Run `composer install` to install the project's testing dependencies.
 * Create/edit `Loadsys/Sniffs/*` classes or modify `Loadsys/ruleset.xml` as desired.
-* Add or change source files in `tests/files/` that verify pass/fail status for the new/changed rules.
+* Add or change source files in `snifftests/files/` that verify pass/fail status for the new/changed rules.
 * Run `vendor/bin/phpunit` to confirm all tests pass.
 * Submit a PR.
 
@@ -63,11 +63,11 @@ $ bin/phpcs -n --standard=Loadsys
 
 Tests are run on the coding standard using sample files that are designed to either pass the full sniff suite without generating any errors or warnings, or that are intended to fail and trigger _specific_ sniff errors/warnings.
 
-These sample files live in the `tests/files/` directory and can be grouped in any manner that makes sense. Our choice is to group tests into two imperative folders, `must/` and `must_not/`. File names start with the topic being tested, such as `array_` or `braces_` or `indent_` and continue with more specificity. For example:
+These sample files live in the `snifftests/files/` directory and can be grouped in any manner that makes sense. Our choice is to group tests into two imperative folders, `must/` and `must_not/`. File names start with the topic being tested, such as `array_` or `braces_` or `indent_` and continue with more specificity. For example:
 
 ```
-tests/files/must_not/array_syntax_long.php
-tests/files/must/array_syntax_short_pass.php
+snifftests/files/must_not/array_syntax_long.php
+snifftests/files/must/array_syntax_short_pass.php
 ```
 
 Tests can affirm either that a coding mistake is properly caught by the sniffer, or that valid coding practices are not incorrectly caught by the sniffer.
@@ -99,7 +99,7 @@ $ vendor/bin/phpunit
 
 ### Indicating expected sniff failures
 
-All files inside of the `tests/files/` directory that do not end in `pass.php` are expected to fail at least one code sniff. The names of the sniffs that are expected to fail must be annotated on the first line of the file, like so:
+All files inside of the `snifftests/files/` directory that do not end in `pass.php` are expected to fail at least one code sniff. The names of the sniffs that are expected to fail must be annotated on the first line of the file, like so:
 
 ```php
 		<?php //~Standard.Section.Sniff.Rule,Second.Rule.To.Expect
@@ -120,9 +120,9 @@ Positive verification tests are especially important when making modifications t
 
 ### Manually reviewing tests/rules
 
-The output from `find tests/files -type f -name '*pass.php' -exec vendor/bin/phpcs -p --standard=./Loadsys {} +` should always pass all sniffs, since these are all of the sample files suffixed with `pass.php`.
+The output from `find snifftests/files -type f -name '*pass.php' -exec vendor/bin/phpcs -p --standard=./Loadsys {} +` should always pass all sniffs, since these are all of the sample files suffixed with `pass.php`.
 
-Every file listed in `find tests/files -type f -name '*.php' ! -name '*pass.php' -exec vendor/bin/phpcs -p --standard=./Loadsys {} +` should throw at least one warning or error each. (Pay attention to any `.`s in the initial progress indicator since that indicates a fully-passing file that should be failing something!) The errors listed will need to be verified by hand that they correctly match the errors that particular file _should_ be triggering.
+Every file listed in `find snifftests/files -type f -name '*.php' ! -name '*pass.php' -exec vendor/bin/phpcs -p --standard=./Loadsys {} +` should throw at least one warning or error each. (Pay attention to any `.`s in the initial progress indicator since that indicates a fully-passing file that should be failing something!) The errors listed will need to be verified by hand that they correctly match the errors that particular file _should_ be triggering.
 
 
 ## License

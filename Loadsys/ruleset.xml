@@ -71,52 +71,12 @@
 	<!-- Ensure file starts with `<?php` -->
 	<rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/>
 
-	<!-- All PHP files MUST use the Unix LF (linefeed) line ending. -->
-	<rule ref="Generic.Files.LineEndings">
-		<properties>
-			<property name="eolChar" value="\n"/>
-		</properties>
-	</rule>
-
 	<!-- There MUST NOT be trailing whitespace at the end of non-blank lines.
 	 Blank lines must not have whitespace at all. -->
 	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
 		<properties>
 			<property name="ignoreBlankLines" value="false"/>
 		</properties>
-	</rule>
-
-
- 	<!-- Relax some src/* and tests/* rules -->
-	<rule ref="PSR1.Files.SideEffects">
-		<exclude-pattern>*/tests/*</exclude-pattern>
-	</rule>
-	<rule ref="PSR1.Classes.ClassDeclaration">
-		<exclude-pattern>*/tests/*</exclude-pattern>
-	</rule>
-	<rule ref="PSR1.Methods.CamelCapsMethodName">
-		<exclude-pattern>*/tests/*</exclude-pattern>
-	</rule>
-	<rule ref="PEAR.NamingConventions.ValidClassName">
-		<exclude-pattern>*/tests/*</exclude-pattern>
-	</rule>
-	<rule ref="Squiz.Classes.ValidClassName">
-		<exclude-pattern>*/tests/*</exclude-pattern>
-	</rule>
-	<rule ref="CakePHP.Commenting.FunctionComment">
-		<exclude-pattern>*/tests/*</exclude-pattern>
-	</rule>
-	<rule ref="Squiz.NamingConventions.ValidFunctionName">
-		<exclude-pattern>*/src/*</exclude-pattern>
-		<exclude-pattern>*/tests/*</exclude-pattern>
-	</rule>
-	<rule ref="Generic.NamingConventions.CamelCapsFunctionName">
-		<exclude-pattern>*/src/*</exclude-pattern>
-		<exclude-pattern>*/tests/*</exclude-pattern>
-	</rule>
-	<rule ref="PEAR.NamingConventions.ValidFunctionName">
-		<exclude-pattern>*/src/*</exclude-pattern>
-		<exclude-pattern>*/tests/*</exclude-pattern>
 	</rule>
 
 

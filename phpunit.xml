@@ -7,10 +7,10 @@
 	 mapTestClassNameToCoveredClassName="false"
 	 strict="false"
 	 verbose="false"
-	 bootstrap="./tests/bootstrap.php">
+	 bootstrap="snifftests/bootstrap.php">
 	<testsuites>
 		<testsuite name="phpcs">
-			<file>./tests/LoadsysStandardTest.php</file>
+			<file>snifftests/LoadsysStandardTest.php</file>
 		</testsuite>
 	</testsuites>
 </phpunit>
