@@ -1,4 +1,4 @@
-<?php //~
+<?php //~CakePHP.Commenting.FunctionComment.IncorrectParamVarName
 //To Do: Catch use of long type names in docblock params. (Cake's is broken.)
 
 class Foo {
@@ -11,5 +11,6 @@ class Foo {
 	 * @return string Something.
 	 */
 	public function bar($param, $otherParam) {
+		return 'hi';
 	}
 }

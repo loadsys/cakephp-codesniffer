@@ -1,5 +1,7 @@
 <?php //~Loadsys.NamingConventions.ValidPrivateProtectedVariableName.PublicHasUnderscore, Loadsys.NamingConventions.ValidPrivateProtectedVariableName.ProtectedUnderscore, Loadsys.NamingConventions.ValidPrivateProtectedVariableName.PrivateWithUnderscore
 
+namespace Foo;
+
 class VariablenameFail {
 
 	public $_publicWithUnderscore;

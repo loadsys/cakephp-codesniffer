@@ -1,4 +1,7 @@
 <?php
+
+namespace Foo;
+
 class Foo {
 
 	/**
@@ -6,16 +9,15 @@ class Foo {
 	 *
 	 * @param string $foo Foo
 	 * @return void
+	 * @throws \Exception Bad things happen.
 	 */
 	public function doThing($foo) {
+		throw new \Exception('yikes');
 	}
-}
-
-class Bar extends Foo {
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public function doThing($foo) {
+	public function doDifferentThing($foo) {
 	}
 }

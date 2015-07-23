@@ -1,5 +1,7 @@
 <?php
 
+namespace Foo;
+
 class TraitUser {
 
 	use FunctionsTrait;

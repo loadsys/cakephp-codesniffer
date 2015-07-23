@@ -1,5 +1,7 @@
 <?php
 
+namespace Foo;
+
 use Cake\Last;
 use Cake\More;
 

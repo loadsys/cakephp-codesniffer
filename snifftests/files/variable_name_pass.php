@@ -1,5 +1,7 @@
 <?php
 
+namespace Foo;
+
 class VariablenamePass {
 
 	public $public = 'defined';

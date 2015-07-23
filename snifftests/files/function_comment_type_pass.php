@@ -1,5 +1,7 @@
 <?php
 
+namespace Foo;
+
 class Foo {
 
 	/**
@@ -10,5 +12,6 @@ class Foo {
 	 * @return string Something.
 	 */
 	public function bar($param, $otherParam) {
+		return 'yay';
 	}
 }

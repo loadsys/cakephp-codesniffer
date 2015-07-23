@@ -44,7 +44,8 @@ class TestHelper {
 			}
 		}
 
-		$this->_rootDir = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'Loadsys';
+		$this->codingStandardName = 'Loadsys';
+		$this->_rootDir = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . $this->codingStandardName;
 
 		$includePath = explode(PATH_SEPARATOR, get_include_path());
 		array_unshift($includePath,
@@ -98,4 +99,28 @@ class TestHelper {
 		return $result;
 	}
 
+	public function sniffList() {
+		if (!class_exists('PHP_CodeSniffer')) {
+			$composerInstall = dirname(dirname(dirname(__FILE__))) . '/vendor/squizlabs/php_codesniffer/CodeSniffer.php';
+			if (file_exists($composerInstall)) {
+				require_once $composerInstall;
+			} else {
+				require_once 'PHP/CodeSniffer.php';
+			}
+		}
+
+		$phpcs = new PHP_CodeSniffer();
+		$phpcs->process(array(), $this->codingStandardName);
+		$sniffs = $phpcs->getSniffs();
+		$sniffs = array_keys($sniffs);
+		sort($sniffs);
+
+		$sniffList = [];
+		foreach ($sniffs as $sniff) {
+			$parts = explode('_', str_replace('\\', '_', $sniff));
+			$sniffList[] = "{$parts[0]}.{$parts[2]}." . substr($parts[3], 0, -5);
+		}
+
+		return $sniffList;
+	}
 }

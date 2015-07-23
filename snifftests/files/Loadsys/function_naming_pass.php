@@ -1,4 +1,7 @@
 <?php
+
+namespace Foo;
+
 class Foo {
 
 	/**
@@ -27,19 +30,16 @@ class Foo {
 	 */
 	private function doSomethingPrivate($foo) {
 	}
-}
-
-class Bar extends Foo {
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public function doThing($foo) {
+	public function doDifferent($foo) {
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	protected function doSomethingProtected($foo) {
+	protected function doDifferentProtected($foo) {
 	}
 }

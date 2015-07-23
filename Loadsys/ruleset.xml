@@ -12,6 +12,10 @@
 		<exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine"/>
 		<exclude name="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine" />
 
+		<!-- Disable enforcing leading underscores for protected/private methods. -->
+		<exclude name="Squiz.NamingConventions.ValidFunctionName.PrivateNoUnderscore"/>
+		<exclude name="PEAR.NamingConventions.ValidFunctionName.PrivateNoUnderscore"/>
+
 		<!-- Disable enforcing spaces for indenting. -->
 		<exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
 
@@ -23,9 +27,6 @@
 
 		<!-- Exclude PEAR style control structures like `if (...)\n{\n` -->
 		<exclude name="PEAR.ControlStructures.ControlSignature"/>
-
-		<!-- Exclude Cake's broken docblock short types sniff. -->
-		<exclude name="CakePHP.Commenting.FunctionCommentType.WrongType"/>
 	</rule>
 
 	<!--

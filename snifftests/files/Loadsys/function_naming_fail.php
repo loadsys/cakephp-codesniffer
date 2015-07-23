@@ -1,4 +1,7 @@
 <?php //~Loadsys.NamingConventions.ValidPrivateProtectedFunctionName.ProtectedWithUnderscore, Loadsys.NamingConventions.ValidPrivateProtectedFunctionName.PrivateWithUnderscore
+
+namespace Foo;
+
 class Foo {
 
 	/**

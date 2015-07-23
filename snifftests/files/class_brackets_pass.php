@@ -1,13 +1,6 @@
 <?php
 
-class NiceClass1 extends Object {
-}
+namespace Foo;
 
-class NiceClass2 implements Object {
-}
-
-class NiceClass2 implements Object1, Object2 {
-}
-
-class NiceClass3 {
+class NiceClass2 extends Object implements Object1, Object2 {
 }
