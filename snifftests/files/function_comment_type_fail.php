@@ -1,5 +1,4 @@
 <?php //~CakePHP.Commenting.FunctionComment.IncorrectParamVarName
-//To Do: Catch use of long type names in docblock params. (Cake's is broken.)
 
 class Foo {
 

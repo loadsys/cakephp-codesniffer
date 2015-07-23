@@ -78,11 +78,6 @@ class LoadsysStandardTest extends PHPUnit_Framework_TestCase {
 			foreach ($expectedFailures as $sniffName) {
 				$sniff = '|\(' . $sniffName . '\)|';
 
-				//@TODO: Remove this once all sniffs are annotated.
-				if($sniffName === 'Unannotated.Error') {
-					$sniff = '/FOUND \d+ ERROR/';
-				}
-
 				$this->assertRegExp(
 					$sniff,
 					$outputStr,
