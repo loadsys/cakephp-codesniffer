@@ -1,4 +1,4 @@
-<?php //~TODO.Should.Throw.Some.Warnings
+<?php //~Loadsys.NamingConventions.ValidPrivateProtectedFunctionName.ProtectedWithUnderscore, Loadsys.NamingConventions.ValidPrivateProtectedFunctionName.PrivateWithUnderscore
 class Foo {
 
 	/**
@@ -17,6 +17,7 @@ class Foo {
 	 * @return void
 	 */
 	protected function _doSomethingProtected($foo) {
+		// Error: Method name should not be prefixed with an underscore.
 	}
 
 	/**
@@ -26,20 +27,6 @@ class Foo {
 	 * @return void
 	 */
 	private function __doSomethingPrivate($foo) {
-	}
-}
-
-class Bar extends Foo {
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public function doThing($foo) {
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	protected function _doSomethingProtected($foo) {
+		// Error: Method name should not be prefixed with an underscore.
 	}
 }

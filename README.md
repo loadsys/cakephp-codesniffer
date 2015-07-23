@@ -78,6 +78,13 @@ Tests can affirm either that a coding mistake is properly caught by the sniffer,
 `vendor/bin/phpcs -p --standard=./Loadsys Loadsys/`
 
 
+### Reviewing the rules included in the standard
+
+`vendor/bin/phpcs -e --standard=./Loadsys Loadsys`
+
+This list can be used to help locate duplicated rules defined directly in the `Loadsys/ruleset.xml`.
+
+
 ### Running tests
 
 ```shell

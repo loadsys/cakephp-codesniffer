@@ -1,4 +1,4 @@
-<?php //~TODO.Should.Throw.Some.Warnings
+<?php //~Loadsys.NamingConventions.ValidPrivateProtectedVariableName.PublicHasUnderscore, Loadsys.NamingConventions.ValidPrivateProtectedVariableName.ProtectedUnderscore, Loadsys.NamingConventions.ValidPrivateProtectedVariableName.PrivateWithUnderscore
 
 class VariablenameFail {
 

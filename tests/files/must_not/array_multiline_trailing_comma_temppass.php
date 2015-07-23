@@ -1,4 +1,5 @@
-<?php //~TODO.Import.Vanilla.Forums.Sniff.To.Catch.This
+<?php //~
+//To Do: Find or write a sniff to catch this. For now, allow this test to pass.
 $a = [
 	1,
 	[

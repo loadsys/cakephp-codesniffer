@@ -6,8 +6,7 @@ namespace Cake;
  *
  * This is a description.
  */
-class Foo extends Bar
-{
+class Foo extends Bar {
 	/**
 	 * What are your thoughts?
 	 *
