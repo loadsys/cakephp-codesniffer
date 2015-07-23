@@ -1,4 +1,4 @@
-<?php
+<?php //~TODO.Should.Throw.Some.Warnings
 
 class VariablenameFail {
 

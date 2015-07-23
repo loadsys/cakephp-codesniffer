@@ -1,2 +1,2 @@
-<?php
-	echo implode('', array_map('chr', array_map('hexdec' , array_filter(explode($delimiter, $string)))));
+<?php //~CakePHP.WhiteSpace.CommaSpacing
+$a = [1 , 2]; // Error: Comma preceded by whitespace.

@@ -1,5 +1,4 @@
-<?php
-$array = [1, 2, 3];
-foreach ($array as $i) {
-    echo $i;
+<?php //~Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed
+foreach (range(1, 3) as $i) {
+    echo $i; // Error: Line indented with spaces.
 }

@@ -1,4 +1,4 @@
-<?php
+<?php //~TODO.Should.Throw.Some.Warnings
 class Foo {
 
 	/**
@@ -27,7 +27,6 @@ class Foo {
 	 */
 	private function __doSomethingPrivate($foo) {
 	}
-
 }
 
 class Bar extends Foo {
@@ -43,5 +42,4 @@ class Bar extends Foo {
 	 */
 	protected function _doSomethingProtected($foo) {
 	}
-
 }

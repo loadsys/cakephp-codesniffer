@@ -1,6 +1,6 @@
-<?php
+<?php //~CakePHP.Commenting.DocBlockAlignment.NotAllowed
 	/**
-	 * Tell me what worries you.
+	 * Error: Doc block should not be indented.
 	 */
 namespace App\Person\Patient;
 
@@ -9,8 +9,7 @@ namespace App\Person\Patient;
  *
  * This is a description.
  */
-class Foo extends Bar
-{
+class Foo extends Bar {
 	/**
 	 * What are your thoughts?
 	 *
@@ -19,12 +18,11 @@ class Foo extends Bar
 	public $brain = [];
 
 /**
- * Tell me your thoughts.
+ * Error: Doc block not indented to match method.
  *
  * @return void
  */
-	public function dumpThoughts()
-	{
+	public function dumpThoughts() {
 		foreach ($thoughts as $thought) {
 			echo $thought;
 		}

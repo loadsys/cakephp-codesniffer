@@ -1,22 +1,49 @@
 <?php
-if (!class_exists('PHP_CodeSniffer_CLI')) {
-	$composerInstall = dirname(dirname(dirname(__FILE__))) . '/vendor/squizlabs/php_codesniffer/CodeSniffer/CLI.php';
-	if (file_exists($composerInstall)) {
-		require_once $composerInstall;
-	} else {
-		require_once 'PHP/CodeSniffer/CLI.php';
-	}
-}
 
+/**
+ * Wraps up the logic necessary to create an "in-memory" version of the
+ * phpcs command line test runner. Used by the TestCase to execute
+ * sniffs on the sample files and return the normal command line output
+ * as a string.
+ */
 class TestHelper {
 
+	/**
+	 * Store the path to the sniff standard folder to be tested.
+	 *
+	 * @var string
+	 */
 	protected $_rootDir;
 
+	/**
+	 * Not used??
+	 *
+	 * @var string
+	 */
 	protected $_dirName;
 
+	/**
+	 * Store an instance of the phpcs test runner class.
+	 *
+	 * @var PHP_CodeSniffer_CLI
+	 */
 	protected $_phpcs;
 
+	/**
+	 * Instantiate an internal copy of PHP_CodeSniffer_CLI.
+	 *
+	 * Sets PHP properties necessary for the class to find its dependencies.
+	 */
 	public function __construct() {
+		if (!class_exists('PHP_CodeSniffer_CLI')) {
+			$composerInstall = dirname(dirname(dirname(__FILE__))) . '/vendor/squizlabs/php_codesniffer/CodeSniffer/CLI.php';
+			if (file_exists($composerInstall)) {
+				require_once $composerInstall;
+			} else {
+				require_once 'PHP/CodeSniffer/CLI.php';
+			}
+		}
+
 		$this->_rootDir = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'Loadsys';
 
 		$includePath = explode(PATH_SEPARATOR, get_include_path());
@@ -31,6 +58,11 @@ class TestHelper {
 
 	/**
 	 * Run PHPCS on a file.
+	 *
+	 * Returns a string representation of the output that would normally
+	 * be printed to the console. Artifically sets the `-s` (showSources)
+	 * command line switch to make it possible to parse which rules failed
+	 * for a given sample file.
 	 *
 	 * @param string $file to run.
 	 * @return string The output from phpcs.
@@ -49,6 +81,7 @@ class TestHelper {
 			'files' => [$file],
 			'standard' => $standard,
 			'showSources' => true,
+			//'reports' => ['json' => null],
 		] + $defaults;
 
 		// New PHPCS has a strange issue where the method arguments
@@ -61,6 +94,7 @@ class TestHelper {
 		$this->_phpcs->process($options);
 		$result = ob_get_contents();
 		ob_end_clean();
+
 		return $result;
 	}
 

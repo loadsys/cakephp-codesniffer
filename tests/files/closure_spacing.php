@@ -1,24 +1,13 @@
-<?php
+<?php //~Squiz.Functions.MultiLineFunctionDeclaration.SpaceAfterFunction, CakePHP.Functions.ClosureDeclaration.SpaceAfterFunction, CakePHP.WhiteSpace.TabAndSpace
 $derp = 'Bryan Crowe';
 
-$pass = function ($one, $two, $three) use ($derp) {
-	echo $derp;
-};
-
-$passArray = [
-	'hello' => 'Beakman',
-	'whatsup' => function ($one, $two) use ($derp) {
-		echo $one . $two;
-	}
-];
-
-$fail = function($one, $two, $three) use ($derp) {
+$fail = function($one, $two, $three) use ($derp) { // Error: No space after `function`
 	echo $derp . $one;
 };
 
 $failTooManySpaces = [
 	'hello' => 'Beakman',
-	'whatsup' => function  ($one, $two) use ($derp) {
+	'whatsup' => function  ($one, $two) use ($derp) { // Error: Multiple spaces after `function`
 		echo $one . $two;
 	}
 ];
