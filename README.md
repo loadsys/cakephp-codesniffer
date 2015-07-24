@@ -1,7 +1,7 @@
 # Loadsys Code Sniffer
 
 [![Latest Version](https://img.shields.io/github/release/loadsys/loadsys_codesniffer.svg?style=flat-square)](https://github.com/loadsys/loadsys_codesniffer/releases)
-[![Build Status](https://travis-ci.org/loadsys/loadsys_codesniffer.png?branch=master)](http://travis-ci.org/loadsys/loadsys_codesniffer)
+[![Build Status](https://img.shields.io/travis/loadsys/loadsys_codesniffer.svg?style=flat-square)](http://travis-ci.org/loadsys/loadsys_codesniffer)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.txt)
 [![Total Downloads](https://img.shields.io/packagist/dt/loadsys/loadsys_codesniffer.svg?style=flat-square)](https://packagist.org/packages/loadsys/loadsys_codesniffer)
 
