@@ -1,7 +1,7 @@
 # Loadsys Code Sniffer
 
 [![Latest Version](https://img.shields.io/github/release/loadsys/loadsys_codesniffer.svg?style=flat-square)](https://github.com/loadsys/loadsys_codesniffer/releases)
-[![Build Status](https://travis-ci.org/loadsys/loadsys_codesniffer.png?branch=master)](http://travis-ci.org/loadsys/loadsys_codesniffer)
+[![Build Status](https://img.shields.io/travis/loadsys/loadsys_codesniffer.svg?style=flat-square)](http://travis-ci.org/loadsys/loadsys_codesniffer)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.txt)
 [![Total Downloads](https://img.shields.io/packagist/dt/loadsys/loadsys_codesniffer.svg?style=flat-square)](https://packagist.org/packages/loadsys/loadsys_codesniffer)
 
@@ -10,6 +10,20 @@ and checks code against the coding standards used by Loadsys. It is based upon t
 [CakePHP coding standards](https://github.com/cakephp/cakephp-codesniffer) with some customizations specific to the Loadsys internal standards and preference.
 
 :warning: This code is designed to target Cake 3.x projects, for Cake 2.x projects, use one of the latests `2.x` releases of this project.
+
+
+## Notable Style Differences
+
+This ruleset is basically [PSR-2](http://www.php-fig.org/psr/psr-2/) with the following diferences:
+
+* Tabs are used for indenting instead of spaces. 1 character is better than 4. The other arguments for "fine grained alignment" are a failure of editing tools, not the tab character itself. Resorting to spaces is the wrong solution to the problem. _(See [Elastic Tabstops](http://nickgravgaard.com/elastic-tabstops/).)_
+* Opening braces universally go on the same line as their block opener. This applies to classes, functions, methods and all control structures. We prefer a single consistent bracing rule.
+
+Other items that are inherited but worth pointing out anyway:
+
+* Namespaces are mandatory for classes.
+* Short array syntax is mandatory.
+* Final commas in multi-line arrays are mandatory (soon).
 
 
 ## Installation
@@ -71,6 +85,17 @@ snifftests/files/must/array_syntax_short_pass.php
 ```
 
 Tests can affirm either that a coding mistake is properly caught by the sniffer, or that valid coding practices are not incorrectly caught by the sniffer.
+
+
+### Reference sniffs
+
+Since we inherit from these rulesets, it's nice to have links to them handy:
+
+* CakePHP: [ruleset.xml](https://github.com/cakephp/cakephp-codesniffer/blob/master/CakePHP/ruleset.xml), [Sniffs](https://github.com/cakephp/cakephp-codesniffer/tree/master/CakePHP/Sniffs)
+* PSR-2: [ruleset.xml](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/PSR2/ruleset.xml), [Sniffs](https://github.com/squizlabs/PHP_CodeSniffer/tree/master/CodeSniffer/Standards/PSR2/Sniffs)
+* [All Squiz-provided Standards](https://github.com/squizlabs/PHP_CodeSniffer/tree/master/CodeSniffer/Standards)
+* Vanilla Forums: [ruleset.xml](https://github.com/vanilla/addons/blob/master/standards/Vanilla/ruleset.xml), [Sniffs](https://github.com/vanilla/addons/tree/master/standards/Vanilla/Sniffs) (we use a copy of their "ValidClassBrackets" sniff.)
+* Codesniffer docs: [Annotated ruleset.xml](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml)
 
 
 ### Running codesniffs on the Loadsys-defined Sniff classes

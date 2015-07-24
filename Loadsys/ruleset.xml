@@ -68,6 +68,17 @@
 		<type>warning</type>
 	</rule>
 
+	<!--
+	Phinx migration files define classes, but can not be namespaced
+	(otherwise Phinx can't construct them by guessing the class name from
+	the filename.
+	Ref: https://github.com/robmorgan/phinx/blob/695ce926c402e4c75ec76ec0a11e027824ff05ea/src/Phinx/Migration/Manager.php#L403
+	So relax the namespacing rules on the config/Migrations folder.
+	-->
+	<rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
+		<exclude-pattern>*/config/Migrations/*</exclude-pattern>
+	</rule>
+
 
 	<!-- Ensure file starts with `<?php` -->
 	<rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/>
