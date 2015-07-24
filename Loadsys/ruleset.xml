@@ -15,6 +15,8 @@
 		<!-- Disable enforcing leading underscores for protected/private methods. -->
 		<exclude name="Squiz.NamingConventions.ValidFunctionName.PrivateNoUnderscore"/>
 		<exclude name="PEAR.NamingConventions.ValidFunctionName.PrivateNoUnderscore"/>
+		<!-- Disable enforcing no leading underscores for public methods (we have our own). -->
+		<exclude name="CakePHP.NamingConventions.ValidFunctionName.PublicWithUnderscore"/>
 
 		<!-- Disable enforcing spaces for indenting. -->
 		<exclude name="Generic.WhiteSpace.DisallowTabIndent"/>
@@ -56,10 +58,14 @@
 	</rule>
 
 	<!--
-	Make using underscores in private and protected variable names a
+	Make using underscores in private and protected class method names a
 	warning (that can then be suppressed) for compatibility with Entity
 	classes that require this.
 	-->
+	<rule ref="Loadsys.NamingConventions.ValidPrivateProtectedFunctionName.PublicWithUnderscore">
+		<type>warning</type>
+	</rule>
+
 	<rule ref="Loadsys.NamingConventions.ValidPrivateProtectedFunctionName.ProtectedWithUnderscore">
 		<type>warning</type>
 	</rule>
