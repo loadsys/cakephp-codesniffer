@@ -14,6 +14,13 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
+//@TODO: Make this pass our own sniffs.
+// namespace Loadsys\Sniffs\NamingConventions;
+//
+// use \PHP_CodeSniffer_Standards_AbstractScopeSniff;
+// use \ReflectionClass;
+// use \ReflectionException;
+
 /**
  * Ensures method names are correct depending on whether they are public
  * or private, and that functions are named correctly.
@@ -21,11 +28,11 @@
  */
 class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedFunctionNameSniff extends PHP_CodeSniffer_Standards_AbstractScopeSniff {
 
-/**
- * A list of all PHP magic methods.
- *
- * @var array
- */
+	/**
+	 * A list of all PHP magic methods.
+	 *
+	 * @var array
+	 */
 	protected $magicMethods = [
 		'construct',
 		'destruct',
@@ -44,9 +51,9 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedFunctionNameSniff ex
 		'invoke',
 	];
 
-/**
- * Constructs a PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff.
- */
+	/**
+	 * Constructs a PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff.
+	 */
 	public function __construct() {
 		parent::__construct([T_CLASS, T_INTERFACE], [T_FUNCTION], true);
 	}
@@ -118,27 +125,16 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedFunctionNameSniff ex
 			}
 		} elseif ($isPrivate === true) {
 			if ($methodName[0] === '_' || substr($methodName, 0, 2) === '__') {
-				$error = 'Private method name "%s" must be prefixed with no underscores';
+				$error = 'Private method name "%s" must not be prefixed with underscores';
 				$phpcsFile->addError($error, $stackPtr, 'PrivateWithUnderscore', $errorData);
 				return;
 			}
 		} else {
 			if ($methodName[0] === '_' || substr($methodName, 0, 2) === '__') {
-				$error = 'Protected method name "%s" must be prefixed with no underscores';
+				$error = 'Protected method name "%s" must not be prefixed with underscores';
 				$phpcsFile->addError($error, $stackPtr, 'ProtectedWithUnderscore', $errorData);
 				return;
 			}
-		}
-
-		$testMethodName = ltrim($methodName, '_');
-		if (PHP_CodeSniffer::isCamelCaps($testMethodName, false, true, false) === false) {
-			$error = '%s method name "%s" is not in camel caps format';
-			$data = [
-				ucfirst($scope),
-				$methodName,
-			];
-			$phpcsFile->addError($error, $stackPtr, 'ScopeNotCamelCaps', $data);
-			return;
 		}
 	}
 
