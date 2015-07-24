@@ -87,6 +87,17 @@ snifftests/files/must/array_syntax_short_pass.php
 Tests can affirm either that a coding mistake is properly caught by the sniffer, or that valid coding practices are not incorrectly caught by the sniffer.
 
 
+### Reference sniffs
+
+Since we inherit from these rulesets, it's nice to have links to them handy:
+
+* CakePHP: [ruleset.xml](https://github.com/cakephp/cakephp-codesniffer/blob/master/CakePHP/ruleset.xml), [Sniffs](https://github.com/cakephp/cakephp-codesniffer/tree/master/CakePHP/Sniffs)
+* PSR-2: [ruleset.xml](https://github.com/squizlabs/PHP_CodeSniffer/blob/master/CodeSniffer/Standards/PSR2/ruleset.xml), [Sniffs](https://github.com/squizlabs/PHP_CodeSniffer/tree/master/CodeSniffer/Standards/PSR2/Sniffs)
+* [All Squiz-provided Standards](https://github.com/squizlabs/PHP_CodeSniffer/tree/master/CodeSniffer/Standards)
+* Vanilla Forums: [ruleset.xml](https://github.com/vanilla/addons/blob/master/standards/Vanilla/ruleset.xml), [Sniffs](https://github.com/vanilla/addons/tree/master/standards/Vanilla/Sniffs) (we use a copy of their "ValidClassBrackets" sniff.)
+* Codesniffer docs: [Annotated ruleset.xml](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml)
+
+
 ### Running codesniffs on the Loadsys-defined Sniff classes
 
 `vendor/bin/phpcs -p --standard=./Loadsys Loadsys/`
