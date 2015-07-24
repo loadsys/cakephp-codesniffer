@@ -12,6 +12,20 @@ and checks code against the coding standards used by Loadsys. It is based upon t
 :warning: This code is designed to target Cake 3.x projects, for Cake 2.x projects, use one of the latests `2.x` releases of this project.
 
 
+## Notable Style Differences
+
+This ruleset is basically [PSR-2](http://www.php-fig.org/psr/psr-2/) with the following diferences:
+
+* Tabs are used for indenting instead of spaces. 1 character is better than 4. The other arguments for "fine grained alignment" are a failure of editing tools, not the tab character itself. Resorting to spaces is the wrong solution to the problem. _(See [Elastic Tabstops](http://nickgravgaard.com/elastic-tabstops/).)_
+* Opening braces universally go on the same line as their block opener. This applies to classes, functions, methods and all control structures. We prefer a single consistent bracing rule.
+
+Other items that are inherited but worth pointing out anyway:
+
+* Namespaces are mandatory for classes.
+* Short array syntax is mandatory.
+* Final commas in multi-line arrays are mandatory (soon).
+
+
 ## Installation
 
 Install these code sniffs via composer in your project:
