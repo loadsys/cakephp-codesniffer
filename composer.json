@@ -30,5 +30,11 @@
       "name": "CakePHP Community",
       "homepage": "https://github.com/cakephp/cakephp-codesniffer/graphs/contributors"
     }
-  ]
+  ],
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/loadsys/composer-plugins.git"
+		}
+	]
 }
