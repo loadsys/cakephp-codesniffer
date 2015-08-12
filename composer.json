@@ -31,10 +31,15 @@
       "homepage": "https://github.com/cakephp/cakephp-codesniffer/graphs/contributors"
     }
   ],
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/loadsys/composer-plugins.git"
-		}
-	]
+    "scripts": {
+        "post-install-cmd": [
+            "Loadsys\\Composer\\PhpCodesniffer\\CodingStandardHook::postInstall"
+        ],
+        "post-update-cmd": [
+            "Loadsys\\Composer\\PhpCodesniffer\\CodingStandardHook::postInstall"
+        ],
+        "pre-package-uninstall": [
+            "Loadsys\\Composer\\PhpCodesniffer\\CodingStandardHook::prePackageUninstall"
+        ]
+    }
 }

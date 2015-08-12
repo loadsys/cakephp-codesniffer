@@ -99,6 +99,7 @@ class TestHelper {
 		return $result;
 	}
 
+	//@TODO: Add a doc block. Sheesh.
 	public function sniffList() {
 		if (!class_exists('PHP_CodeSniffer')) {
 			$composerInstall = dirname(dirname(dirname(__FILE__))) . '/vendor/squizlabs/php_codesniffer/CodeSniffer.php';
