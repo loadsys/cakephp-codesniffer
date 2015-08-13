@@ -30,16 +30,5 @@
       "name": "CakePHP Community",
       "homepage": "https://github.com/cakephp/cakephp-codesniffer/graphs/contributors"
     }
-  ],
-    "scripts": {
-        "post-install-cmd": [
-            "Loadsys\\Composer\\PhpCodesniffer\\CodingStandardHook::postInstall"
-        ],
-        "post-update-cmd": [
-            "Loadsys\\Composer\\PhpCodesniffer\\CodingStandardHook::postInstall"
-        ],
-        "pre-package-uninstall": [
-            "Loadsys\\Composer\\PhpCodesniffer\\CodingStandardHook::prePackageUninstall"
-        ]
-    }
+  ]
 }

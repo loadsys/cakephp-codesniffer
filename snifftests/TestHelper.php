@@ -99,7 +99,16 @@ class TestHelper {
 		return $result;
 	}
 
-	//@TODO: Add a doc block. Sheesh.
+	/**
+	 * Asks the phpcs runtime for a list of code sniffs it knows about.
+	 *
+	 * Returns an array of `Vendor.Sniff.Rule` elements that match those
+	 * returned by `phpcs -s`. Used as a "meta" test in LoadsysStandardTest
+	 * to check which sniffs are covered by the sample files and which
+	 * aren't.
+	 *
+	 * @return array Comprehensive list of code sniffs the phpcs runtime knows about.
+	 */
 	public function sniffList() {
 		if (!class_exists('PHP_CodeSniffer')) {
 			$composerInstall = dirname(dirname(dirname(__FILE__))) . '/vendor/squizlabs/php_codesniffer/CodeSniffer.php';
