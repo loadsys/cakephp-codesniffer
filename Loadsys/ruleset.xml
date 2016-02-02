@@ -32,6 +32,20 @@
 	</rule>
 
 	<!--
+	Reduce the severity of TO DO marker warnings to allow them to be more
+	easily suppressed during normal developer runs, but still included in
+	Travis builds (via coordination with the `codesniffer-run` script from
+	the CakePHP-Shell-Scripts project and manipulation of the
+	`- -warning-severity=n` command line option.)
+	-->
+	<rule ref="Generic.Commenting.Todo.CommentFound">
+		<severity>3</severity>
+	</rule>
+	<rule ref="Generic.Commenting.Todo.TaskFound">
+		<severity>3</severity>
+	</rule>
+
+	<!--
 	Enforce "the opposite" of the disabled PSR-2/CakePHP rules above. In
 	other words; it's not enough to DISable the enforcement of spaces for
 	indenting, we must also ENable enforcement of tabs for indenting.
