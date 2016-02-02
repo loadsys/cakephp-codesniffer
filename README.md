@@ -23,7 +23,7 @@ Other items that are inherited but worth pointing out anyway:
 
 * Namespaces are mandatory for classes.
 * Short array syntax is mandatory.
-* Final commas in multi-line arrays are mandatory (soon).
+* Final commas in multi-line arrays are mandatory.
 
 
 ## Installation
