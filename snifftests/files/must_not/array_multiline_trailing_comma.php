@@ -1,5 +1,4 @@
-<?php //~
-//To Do: Find or write a sniff to catch this. For now, allow this test to pass.
+<?php //~Loadsys.Array.Array.NoLastComma
 $a = [
 	1,
 	[

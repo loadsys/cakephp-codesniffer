@@ -9,5 +9,5 @@ $passArray = [
 	'hello' => 'Beakman',
 	'whatsup' => function ($one, $two) use ($derp) {
 		echo $one . $two;
-	}
+	},
 ];
