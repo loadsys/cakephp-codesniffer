@@ -14,13 +14,6 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-//@TODO: Make this pass our own sniffs.
-// namespace Loadsys\Sniffs\NamingConventions;
-//
-// use \PHP_CodeSniffer_Standards_AbstractScopeSniff;
-// use \ReflectionClass;
-// use \ReflectionException;
-
 /**
  * Ensures method names are correct depending on whether they are public
  * or private, and that functions are named correctly.

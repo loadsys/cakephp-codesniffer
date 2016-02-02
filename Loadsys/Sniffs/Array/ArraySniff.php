@@ -12,13 +12,6 @@
  * @link https://github.com/aik099/CodingStandard
  */
 
-//@TODO: Make this pass our own sniffs.
-// namespace Loadsys\Sniffs\Array;
-//
-// use \PHP_CodeSniffer_Sniff;
-// use \ReflectionClass;
-// use \ReflectionException;
-
 /**
  * CodingStandard_Sniffs_Array_ArraySniff.
  *
@@ -62,7 +55,7 @@ class Loadsys_Sniffs_Array_ArraySniff implements PHP_CodeSniffer_Sniff {
 			// Empty array, but if the brackets aren't together, there's a problem.
 			if (($arrayEnd - $arrayStart) !== 1) {
 				$error = 'Empty array declaration must have no space between the brackets.';
-				$fix   = $phpcsFile->addFixableError($error, $stackPtr, 'SpaceInEmptyArray');
+				$fix = $phpcsFile->addFixableError($error, $stackPtr, 'SpaceInEmptyArray');
 				if ($fix === true) {
 					$phpcsFile->fixer->beginChangeset();
 
