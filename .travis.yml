@@ -15,6 +15,7 @@ before_script:
   - vendor/bin/phpcs --config-set installed_paths vendor/cakephp/cakephp-codesniffer
 
 script:
+  - vendor/bin/phpcs -ps --standard=snifftests/sniff_class_rules.xml Loadsys/
   - vendor/bin/phpunit
 
 notifications:

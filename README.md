@@ -23,7 +23,7 @@ Other items that are inherited but worth pointing out anyway:
 
 * Namespaces are mandatory for classes.
 * Short array syntax is mandatory.
-* Final commas in multi-line arrays are mandatory (soon).
+* Final commas in multi-line arrays are mandatory.
 
 
 ## Installation
@@ -100,7 +100,9 @@ Since we inherit from these rulesets, it's nice to have links to them handy:
 
 ### Running codesniffs on the Loadsys-defined Sniff classes
 
-`vendor/bin/phpcs -p --standard=./Loadsys Loadsys/`
+`vendor/bin/phpcs -ps --standard=snifftests/sniff_class_rules.xml Loadsys/`
+
+This custom ruleset relaxes a few of our normal rules to accommodate shortcomings in PHPCS's requirements for Sniff classes themselves (such as not supporting namepspaces or CamelCased class names.) The ruleset will run the entire Loadsys standard with those rules excluded.
 
 
 ### Reviewing the rules included in the standard

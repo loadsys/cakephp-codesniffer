@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ruleset name="SniffClassRules">
+	<description>Custom rules for Sniff classes in the Loadsys coding standard.</description>
+
+	<!--
+	Soften some of our normal rules since PHPCS can't handle Sniffs with
+	 namespaces and doesn't use camelCased class names.
+	 -->
+	<rule ref="../Loadsys/ruleset.xml">
+		<exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
+
+		<exclude name="Squiz.Classes.ValidClassName.NotCamelCaps"/>
+	</rule>
+</ruleset>
