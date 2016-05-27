@@ -2,6 +2,8 @@
 
 namespace Foo;
 
+use \Exception;
+
 class Foo {
 
 	/**
@@ -12,7 +14,7 @@ class Foo {
 	 * @throws \Exception Bad things happen.
 	 */
 	public function doThing($foo) {
-		throw new \Exception('yikes');
+		throw new Exception('yikes');
 	}
 
 	/**

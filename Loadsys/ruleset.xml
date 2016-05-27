@@ -29,6 +29,15 @@
 
 		<!-- Exclude PEAR style control structures like `if (...)\n{\n` -->
 		<exclude name="PEAR.ControlStructures.ControlSignature"/>
+
+		<!--
+		DON'T exclude either the generic comma-spacing sniff (because it
+		provides fixers) or Cake's (since it captures more).
+		-->
+		<!--
+		<exclude name="Generic.Functions.FunctionCallArgumentSpacing.SpaceBeforeComma"/>
+		<exclude name="CakePHP.WhiteSpace.CommaSpacing"/>
+		-->
 	</rule>
 
 	<!--
