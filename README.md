@@ -16,10 +16,14 @@ and checks code against the coding standards used by Loadsys. It is based upon t
 
 This ruleset is basically [PSR-2](http://www.php-fig.org/psr/psr-2/) with the following diferences:
 
-* Tabs are used for indenting instead of spaces. 1 character is better than 4. The other arguments for "fine grained alignment" are a failure of editing tools, not the tab character itself. Resorting to spaces is the wrong solution to the problem. _(See [Elastic Tabstops](http://nickgravgaard.com/elastic-tabstops/).)_
+* Tabs are used for indenting instead of spaces. When it comes to file size and typing speed, 1 character is better than 4. The other arguments for "fine grained alignment" are a failure of editing tools, not the tab character itself. Resorting to spaces is the wrong solution to the problem. _(See [Elastic Tabstops](http://nickgravgaard.com/elastic-tabstops/).)_
+
 * Opening braces universally go on the same line as their block opener. This applies to classes, functions, methods and all control structures. We prefer a single consistent bracing rule.
+
 * Final commas in multi-line arrays are mandatory. This makes diffs cleaner and reduces mistakes when re-ordering lists.
+
 * All classes must be declared before use at the top of the file.
+
 	```php
 	$var = new \DateTime(); // invalid
 	$var = new \Vendor\Lib(); // invalid
