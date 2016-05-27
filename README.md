@@ -18,12 +18,21 @@ This ruleset is basically [PSR-2](http://www.php-fig.org/psr/psr-2/) with the fo
 
 * Tabs are used for indenting instead of spaces. 1 character is better than 4. The other arguments for "fine grained alignment" are a failure of editing tools, not the tab character itself. Resorting to spaces is the wrong solution to the problem. _(See [Elastic Tabstops](http://nickgravgaard.com/elastic-tabstops/).)_
 * Opening braces universally go on the same line as their block opener. This applies to classes, functions, methods and all control structures. We prefer a single consistent bracing rule.
+* Final commas in multi-line arrays are mandatory. This makes diffs cleaner and reduces mistakes when re-ordering lists.
+* All classes must be declared before use at the top of the file.
+	```php
+	$var = new \DateTime(); // invalid
+	$var = new \Vendor\Lib(); // invalid
+	$var = new Local\SubClass(); // invalid
+	//---
+	use \DateTime
+	$var = new DateTime(); // valid
+	```
 
 Other items that are inherited but worth pointing out anyway:
 
 * Namespaces are mandatory for classes.
 * Short array syntax is mandatory.
-* Final commas in multi-line arrays are mandatory.
 
 
 ## Installation
@@ -147,9 +156,25 @@ Positive verification tests are especially important when making modifications t
 
 ### Manually reviewing tests/rules
 
-The output from `find snifftests/files -type f -name '*pass.php' -exec vendor/bin/phpcs -p --standard=./Loadsys {} +` should always pass all sniffs, since these are all of the sample files suffixed with `pass.php`.
+To test a single sample file, run:
 
-Every file listed in `find snifftests/files -type f -name '*.php' ! -name '*pass.php' -exec vendor/bin/phpcs -p --standard=./Loadsys {} +` should throw at least one warning or error each. (Pay attention to any `.`s in the initial progress indicator since that indicates a fully-passing file that should be failing something!) The errors listed will need to be verified by hand that they correctly match the errors that particular file _should_ be triggering.
+```php
+$ vendor/bin/phpcs -ps --standard=./Loadsys snifftests/files/sample_file_name.php
+```
+
+To confirm that all test files that **should** pass **do** pass, run:
+
+```php
+$ find snifftests/files -type f -name '*pass.php' -exec vendor/bin/phpcs -p --standard=./Loadsys {} +
+```
+
+To confirm that all files that should fail, do fail, run:
+
+```php
+$ find snifftests/files -type f -name '*.php' ! -name '*pass.php' -exec vendor/bin/phpcs -p --standard=./Loadsys {} +
+```
+
+Every file listed in should throw at least one warning or error each. (Pay attention to any `.`s in the initial progress indicator since that indicates a fully-passing file that should be failing something!) The errors listed will need to be verified by hand that they correctly match the errors that particular file _should_ be triggering.
 
 
 ## License
@@ -159,4 +184,4 @@ Every file listed in `find snifftests/files -type f -name '*.php' ! -name '*pass
 
 ## Copyright
 
-[Loadsys Web Strategies](http://www.loadsys.com) 2015
+[Loadsys Web Strategies](http://www.loadsys.com) 2016
