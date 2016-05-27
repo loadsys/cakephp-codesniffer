@@ -4,6 +4,7 @@ namespace Loadsys;
 
 use Other\Crap;
 use Other\Error as OtherError;
+use \Exception;
 
 class Throws {
 
@@ -26,7 +27,7 @@ class Throws {
 			case 3:
 				throw new Crap();
 			default:
-				throw new \Exception();
+				throw new Exception();
 		}
 	}
 }
