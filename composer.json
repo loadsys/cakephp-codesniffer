@@ -1,7 +1,7 @@
 {
   "name": "loadsys/loadsys_codesniffer",
   "description": "Loadsys CodeSniffer Standards, uses the CakePHP core team's as a base.",
-  "type": "library",
+  "type": "phpcs-coding-standard",
   "keywords": ["framework", "codesniffer"],
   "homepage": "https://github.com/loadsys/loadsys_codesniffer",
   "support": {
@@ -9,11 +9,12 @@
       "source": "https://github.com/loadsys/loadsys_codesniffer"
   },
   "require": {
-      "squizlabs/php_codesniffer": "2.*",
-      "cakephp/cakephp-codesniffer": "^2.0.4"
+      "squizlabs/php_codesniffer": "~2.3",
+      "cakephp/cakephp-codesniffer": "^2.0.4",
+      "loadsys/composer-plugins": "~1.0"
   },
   "require-dev": {
-      "phpunit/phpunit": "4.1.*"
+      "phpunit/phpunit": "~4.1"
   },
   "license": "MIT",
   "authors": [
