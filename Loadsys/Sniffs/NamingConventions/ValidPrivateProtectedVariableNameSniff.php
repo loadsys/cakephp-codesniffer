@@ -106,6 +106,7 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedVariableNameSniff ex
 				$error = 'Public member variable "%s" must not contain a leading underscore';
 				$data = [$varName];
 				$phpcsFile->addError($error, $stackPtr, 'PublicHasUnderscore', $data);
+
 				return;
 			}
 		} elseif ($private === true) {
@@ -113,6 +114,7 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedVariableNameSniff ex
 				$error = 'Private member variable "%s" must not contain two leading underscores';
 				$data = [$varName];
 				$phpcsFile->addError($error, $stackPtr, 'PrivateWithUnderscore', $data);
+
 				return;
 			}
 
@@ -127,6 +129,7 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedVariableNameSniff ex
 				$error = 'Protected member variable "%s" must not contain a leading underscore';
 				$data = [$varName];
 				$phpcsFile->addError($error, $stackPtr, 'ProtectedUnderscore', $data);
+
 				return;
 			}
 		}
