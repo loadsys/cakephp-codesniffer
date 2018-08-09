@@ -99,6 +99,7 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedFunctionNameSniff ex
 			if ($methodName[0] === '_') {
 				$error = 'Public method name "%s" must not be prefixed with underscore';
 				$phpcsFile->addError($error, $stackPtr, 'PublicWithUnderscore', $errorData);
+
 				return;
 			}
 
@@ -120,12 +121,14 @@ class Loadsys_Sniffs_NamingConventions_ValidPrivateProtectedFunctionNameSniff ex
 			if ($methodName[0] === '_' || substr($methodName, 0, 2) === '__') {
 				$error = 'Private method name "%s" must not be prefixed with underscores';
 				$phpcsFile->addError($error, $stackPtr, 'PrivateWithUnderscore', $errorData);
+
 				return;
 			}
 		} else {
 			if ($methodName[0] === '_' || substr($methodName, 0, 2) === '__') {
 				$error = 'Protected method name "%s" must not be prefixed with underscores';
 				$phpcsFile->addError($error, $stackPtr, 'ProtectedWithUnderscore', $errorData);
+
 				return;
 			}
 		}

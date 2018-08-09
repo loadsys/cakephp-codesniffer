@@ -45,6 +45,7 @@ class Loadsys_Sniffs_NamingConventions_ValidClassBracketsSniff implements PHP_Co
 		if ($tokens[$found - 1]['code'] != T_WHITESPACE) {
 			$error = 'Expected 1 space after class declaration, found 0';
 			$phpcsFile->addError($error, $found - 1, 'InvalidSpacing', []);
+
 			return;
 		} elseif ($tokens[$found - 1]['content'] != " ") {
 			$error = 'Expected 1 space before curly opening bracket';
