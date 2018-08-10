@@ -3,7 +3,7 @@
 	<description>Loadsys coding standard</description>
 
 	<exclude-pattern>\.git</exclude-pattern>
-	<exclude-pattern>*/config/*.ini.php</exclude-pattern>
+	<exclude-pattern>*/Config/*.ini.php</exclude-pattern>
 	<exclude-pattern>/*/tmp/</exclude-pattern>
 
 	<!-- Include most CakePHP rules (and PSR-2/PSR-1, by extension). -->
@@ -72,16 +72,6 @@
 		<type>warning</type>
 	</rule>
 
-	<rule ref="Loadsys.NamingConventions.ValidPrivateProtectedVariableName.ProtectedUnderscore">
-		<type>warning</type>
-
-		<!--
-		Entity classes MUST define override methods that do not follow
-		camelCasing so don't make those "errors" at all.
-		-->
-		<exclude-pattern>src/Model/Entity/*</exclude-pattern>
-	</rule>
-
 	<rule ref="Loadsys.NamingConventions.ValidPrivateProtectedVariableName.PrivateWithUnderscore">
 		<type>warning</type>
 	</rule>
@@ -95,37 +85,9 @@
 		<type>warning</type>
 	</rule>
 
-	<rule ref="Loadsys.NamingConventions.ValidPrivateProtectedFunctionName.ProtectedWithUnderscore">
-		<type>warning</type>
-
-		<!--
-		Entity classes MUST define override properties that do not follow
-		camelCasing so don't make those "errors" at all.
-		-->
-		<exclude-pattern>src/Model/Entity/*</exclude-pattern>
-
-		<!--
-		Form classes MUST used underscored method names.
-		-->
-		<exclude-pattern>src/Form/*</exclude-pattern>
-	</rule>
-
 	<rule ref="Loadsys.NamingConventions.ValidPrivateProtectedFunctionName.PrivateWithUnderscore">
 		<type>warning</type>
 	</rule>
-
-	<!--
-	Phinx migration and seeds files define classes, but can not be namespaced
-	(otherwise Phinx can't construct them by guessing the class name from
-	the filename.)
-	Ref: https://github.com/robmorgan/phinx/blob/695ce926c402e4c75ec76ec0a11e027824ff05ea/src/Phinx/Migration/Manager.php#L403
-    So relax the namespacing rules on the config/Migrations and config/Seeds folder.
-	-->
-	<rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
-		<exclude-pattern>*/config/Migrations/*</exclude-pattern>
-		<exclude-pattern>*/config/Seeds/*</exclude-pattern>
-	</rule>
-
 
 	<!-- Ensure file starts with `<?php` -->
 	<rule ref="Generic.PHP.CharacterBeforePHPOpeningTag"/>
