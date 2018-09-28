@@ -115,13 +115,14 @@
 	</rule>
 
 	<!--
-	Phinx migration and seeds files define classes, but can not be namespaced
+	Phinx configure, migrations and seeds files define classes, but can not be namespaced
 	(otherwise Phinx can't construct them by guessing the class name from
 	the filename.)
 	Ref: https://github.com/robmorgan/phinx/blob/695ce926c402e4c75ec76ec0a11e027824ff05ea/src/Phinx/Migration/Manager.php#L403
     So relax the namespacing rules on the config/Migrations and config/Seeds folder.
 	-->
 	<rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
+		<exclude-pattern>*/config/Configure/*</exclude-pattern>
 		<exclude-pattern>*/config/Migrations/*</exclude-pattern>
 		<exclude-pattern>*/config/Seeds/*</exclude-pattern>
 	</rule>
